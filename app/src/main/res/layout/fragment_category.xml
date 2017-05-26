@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.coaster.android.coaster.CategoryFragment">
+
+    <Button
+        android:id="@+id/gin_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gin"
+        android:layout_margin="8dp"
+        android:padding="20dp"/>
+    <Button
+        android:id="@+id/rum_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rum"
+        android:layout_margin="8dp"
+        android:padding="20dp"/>
+    <Button
+        android:id="@+id/tequila_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tequila"
+        android:layout_margin="8dp"
+        android:padding="20dp"/>
+    <Button
+        android:id="@+id/vodka_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vodka"
+        android:layout_margin="8dp"
+        android:padding="20dp"/>
+    <Button
+        android:id="@+id/whiskey_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Whiskey"
+        android:layout_margin="8dp"
+        android:padding="20dp"/>
+
+
+</LinearLayout>
