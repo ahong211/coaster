@@ -4,6 +4,7 @@ package com.coaster.android.coaster;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener{
                 whiskeyPress.whiskeyStringKey();
 
                 break;
+
         }
     }
 }
