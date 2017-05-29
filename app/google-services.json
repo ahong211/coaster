@@ -62,11 +62,207 @@
       },
       "oauth_client": [
         {
+          "client_id": "910289223413-1rdjqa3iobr6br55ir0b0kp8mrj32fgd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coaster.android.coaster",
+            "certificate_hash": "edbeb53be87a00e2d903b6296db58b662edf666d"
+          }
+        },
+        {
           "client_id": "910289223413-jkgmecbkciscq850dbllla95b2fhvmnr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.coaster.android.coaster",
             "certificate_hash": "cc78d9f7112f3274d0077022cf377c94978504a2"
+          }
+        },
+        {
+          "client_id": "910289223413-n0v48holhh483dp5holb9ej2dhamidkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4E3YVxCGoCwn-iNlqik1Nrsn6crrWRDE"
+        },
+        {
+          "current_key": "AIzaSyCwihRcFzv-nvnzqYQTKjwNUeSnyD4w9lg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910289223413-n0v48holhh483dp5holb9ej2dhamidkp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910289223413:android:f5a9b2831ab7d166",
+        "android_client_info": {
+          "package_name": "com.example.rv193.firebasecrud2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910289223413-b24hmu9lmo5komp88efgikcdnt77o7qg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rv193.firebasecrud2",
+            "certificate_hash": "9397f39a11fe3c821a114b587837a6c44cadb8e5"
+          }
+        },
+        {
+          "client_id": "910289223413-n0v48holhh483dp5holb9ej2dhamidkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4E3YVxCGoCwn-iNlqik1Nrsn6crrWRDE"
+        },
+        {
+          "current_key": "AIzaSyCwihRcFzv-nvnzqYQTKjwNUeSnyD4w9lg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910289223413-n0v48holhh483dp5holb9ej2dhamidkp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910289223413:android:20566947b04d2791",
+        "android_client_info": {
+          "package_name": "com.example.rv193.firebasecrud4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910289223413-n21jqtfamdnc6ojm0c6eehofa4d92fi6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rv193.firebasecrud4",
+            "certificate_hash": "9397f39a11fe3c821a114b587837a6c44cadb8e5"
+          }
+        },
+        {
+          "client_id": "910289223413-n0v48holhh483dp5holb9ej2dhamidkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4E3YVxCGoCwn-iNlqik1Nrsn6crrWRDE"
+        },
+        {
+          "current_key": "AIzaSyCwihRcFzv-nvnzqYQTKjwNUeSnyD4w9lg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910289223413-n0v48holhh483dp5holb9ej2dhamidkp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910289223413:android:c43e869c171f1f4e",
+        "android_client_info": {
+          "package_name": "com.example.rv193.firebasecrud5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910289223413-roihufehutfn6poq50ghul2ebk4epn8o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rv193.firebasecrud5",
+            "certificate_hash": "9397f39a11fe3c821a114b587837a6c44cadb8e5"
+          }
+        },
+        {
+          "client_id": "910289223413-n0v48holhh483dp5holb9ej2dhamidkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4E3YVxCGoCwn-iNlqik1Nrsn6crrWRDE"
+        },
+        {
+          "current_key": "AIzaSyCwihRcFzv-nvnzqYQTKjwNUeSnyD4w9lg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910289223413-n0v48holhh483dp5holb9ej2dhamidkp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910289223413:android:18c4d58a51a79655",
+        "android_client_info": {
+          "package_name": "com.example.rv193.firebasecrud7"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910289223413-tijpb46d4pqt6hceb8bgtcciuabqmore.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rv193.firebasecrud7",
+            "certificate_hash": "9397f39a11fe3c821a114b587837a6c44cadb8e5"
           }
         },
         {
