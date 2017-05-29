@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements ButtonPress {
     CategoryFragment mCategoryFragment;
     DrinksFragment mDrinksFragment;
+    CustomDrinksListFragment mCustomDrinksListFragment;
     FragmentManager manager = getSupportFragmentManager();
+    // TODO: 5/29/2017 Link custom drink fragment to custom drink list fragment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +19,6 @@ public class MainActivity extends AppCompatActivity implements ButtonPress {
 
         mCategoryFragment = new CategoryFragment();
         mDrinksFragment = new DrinksFragment();
-
 
         FragmentTransaction transaction = manager.beginTransaction();
 
@@ -31,6 +32,15 @@ public class MainActivity extends AppCompatActivity implements ButtonPress {
         drinkTransaction.replace(R.id.fragment_container, mDrinksFragment);
         drinkTransaction.addToBackStack(null);
         drinkTransaction.commit();
+    }
+
+    @Override
+    public void customDrinksListButtonPress() {
+        mCustomDrinksListFragment = new CustomDrinksListFragment();
+        FragmentTransaction customDrinksListTransaction = manager.beginTransaction();
+        customDrinksListTransaction.replace(R.id.fragment_container, mCustomDrinksListFragment);
+        customDrinksListTransaction.addToBackStack(null);
+        customDrinksListTransaction.commit();
     }
 
     @Override

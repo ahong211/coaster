@@ -4,6 +4,8 @@ public interface ButtonPress {
 
     public void drinkButtonPress();
 
+    public void customDrinksListButtonPress();
+
     public void vodkaStringKey();
 
     public void whiskeyStringKey();

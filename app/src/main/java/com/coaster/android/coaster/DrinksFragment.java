@@ -75,7 +75,7 @@ public class DrinksFragment extends Fragment {
                 }
 
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                CategoryAdapter adapter = new CategoryAdapter(mCocktailList);
+                RecyclerViewAdapter adapter = new RecyclerViewAdapter(mCocktailList);
                 mRecyclerView.setAdapter(adapter);
 
             }

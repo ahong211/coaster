@@ -6,16 +6,21 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class CategoryFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = CategoryFragment.class.getSimpleName() + "_TAG";
+
     ImageView ginButton;
     ImageView rumButton;
     ImageView tequilaButton;
     ImageView vodkaButton;
     ImageView whiskeyButton;
+
+    Button customDrinksButton;
+
     FragmentManager manager = getFragmentManager();
     DrinksFragment drinksFrag = new DrinksFragment();
 
@@ -34,7 +39,9 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         tequilaButton = (ImageView) view.findViewById(R.id.tequila_button);
         vodkaButton = (ImageView) view.findViewById(R.id.vodka_button);
         whiskeyButton = (ImageView) view.findViewById(R.id.whiskey_button);
+        customDrinksButton = (Button) view.findViewById(R.id.custom_drinks_button);
 
+        customDrinksButton.setOnClickListener(this);
         ginButton.setOnClickListener(this);
         rumButton.setOnClickListener(this);
         tequilaButton.setOnClickListener(this);
@@ -62,6 +69,14 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 whiskeyPress.whiskeyStringKey();
 
                 break;
+
+            case R.id.custom_drinks_button:
+
+                ButtonPress customDrinksListPress = (ButtonPress) getActivity();
+                customDrinksListPress.customDrinksListButtonPress();
+
+                break;
         }
     }
+
 }
