@@ -1,6 +1,5 @@
 package com.coaster.android.coaster;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Objects;
 
 public class DrinksFragment extends Fragment {
 
@@ -36,11 +35,10 @@ public class DrinksFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_drinks, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
@@ -51,16 +49,15 @@ public class DrinksFragment extends Fragment {
         Query searchVodka = myRef.orderByChild("category").equalTo("Vodka");
         Query searchWhiskey = myRef.orderByChild("category").equalTo("Whiskey");
 
-
-        if (drinkKey == "lookUpVodka") {
+        if (Objects.equals(drinkKey, "lookUpVodka")) {
             mCocktailList.clear();
             callQuery(searchVodka);
         }
-        if (drinkKey == "lookUpWhiskey") {
+
+        if (Objects.equals(drinkKey, "lookUpWhiskey")) {
             mCocktailList.clear();
             callQuery(searchWhiskey);
         }
-
 
         return view;
     }

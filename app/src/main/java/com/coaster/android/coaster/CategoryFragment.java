@@ -1,6 +1,5 @@
 package com.coaster.android.coaster;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,24 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+public class CategoryFragment extends Fragment implements View.OnClickListener {
 
-public class CategoryFragment extends Fragment implements View.OnClickListener{
-
+    private static final String TAG = CategoryFragment.class.getSimpleName() + "_TAG";
     Button ginButton;
     Button rumButton;
     Button tequilaButton;
     Button vodkaButton;
     Button whiskeyButton;
-
     FragmentManager manager = getFragmentManager();
-
-    private static final String TAG = CategoryFragment.class.getSimpleName() + "_TAG";
     DrinksFragment drinksFrag = new DrinksFragment();
 
     public CategoryFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

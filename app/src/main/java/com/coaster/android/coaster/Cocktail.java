@@ -1,7 +1,5 @@
 package com.coaster.android.coaster;
 
-
-
 public class Cocktail {
     private String whiskey;
     private String vodka;
@@ -13,10 +11,11 @@ public class Cocktail {
     private String description;
 
     public Cocktail() {
-        
+
     }
 
-    public Cocktail(String whiskey, String vodka, String gin, String rum, String tequila, String name, String category) {
+    public Cocktail(String whiskey, String vodka, String gin, String rum, String tequila,
+                    String name, String category) {
         this.whiskey = whiskey;
         this.vodka = vodka;
         this.gin = gin;
