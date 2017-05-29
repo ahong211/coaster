@@ -28,7 +28,6 @@ public class CustomDrinksListFragment extends Fragment {
     }
 
 
-
     // Need to check if media is still available because it could have been moved or deleted by user
     /* Checks if external storage is available for read and write */
     public boolean isExternalStorageWritable() {

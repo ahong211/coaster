@@ -31,7 +31,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_category, container, false);
 
         ginButton = (ImageView) view.findViewById(R.id.gin_button);
@@ -78,5 +78,4 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 break;
         }
     }
-
 }
