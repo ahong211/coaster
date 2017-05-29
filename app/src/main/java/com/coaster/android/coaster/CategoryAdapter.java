@@ -26,8 +26,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyHold
 
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
-        holder.textView.setText(mCocktails.get(position).getName() + "\n"
-                + mCocktails.get(position).getDescription());
+        holder.textView.setText(mCocktails.get(position).getName());
     }
 
     @Override

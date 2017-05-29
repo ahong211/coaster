@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity implements ButtonPress {
 
     @Override
     public void vodkaStringKey() {
-        mDrinksFragment.drinkKey = "lookUpVodka";
+        mDrinksFragment.topNode = "vodka";
     }
 
     @Override
     public void whiskeyStringKey() {
-        mDrinksFragment.drinkKey = "lookUpWhiskey";
+        mDrinksFragment.topNode = "whiskey";
     }
 }
