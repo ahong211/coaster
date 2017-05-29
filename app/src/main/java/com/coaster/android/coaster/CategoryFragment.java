@@ -6,16 +6,16 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 
 public class CategoryFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = CategoryFragment.class.getSimpleName() + "_TAG";
-    Button ginButton;
-    Button rumButton;
-    Button tequilaButton;
-    Button vodkaButton;
-    Button whiskeyButton;
+    ImageView ginButton;
+    ImageView rumButton;
+    ImageView tequilaButton;
+    ImageView vodkaButton;
+    ImageView whiskeyButton;
     FragmentManager manager = getFragmentManager();
     DrinksFragment drinksFrag = new DrinksFragment();
 
@@ -29,11 +29,11 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_category, container, false);
 
-        ginButton = (Button) view.findViewById(R.id.gin_button);
-        rumButton = (Button) view.findViewById(R.id.rum_button);
-        tequilaButton = (Button) view.findViewById(R.id.tequila_button);
-        vodkaButton = (Button) view.findViewById(R.id.vodka_button);
-        whiskeyButton = (Button) view.findViewById(R.id.whiskey_button);
+        ginButton = (ImageView) view.findViewById(R.id.gin_button);
+        rumButton = (ImageView) view.findViewById(R.id.rum_button);
+        tequilaButton = (ImageView) view.findViewById(R.id.tequila_button);
+        vodkaButton = (ImageView) view.findViewById(R.id.vodka_button);
+        whiskeyButton = (ImageView) view.findViewById(R.id.whiskey_button);
 
         ginButton.setOnClickListener(this);
         rumButton.setOnClickListener(this);

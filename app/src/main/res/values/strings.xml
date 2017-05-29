@@ -6,4 +6,6 @@
     <string name="tequila">Tequila</string>
     <string name="vodka">Vodka</string>
     <string name="whiskey">Whiskey</string>
+    <string name="Mixed">Mixed</string>
+
 </resources>
