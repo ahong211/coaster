@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
+    android:background="#f1f1f1"
     tools:context="com.coaster.android.coaster.CategoryFragment">
 
     <TextView
@@ -19,7 +20,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp">
+        >
 
         <ImageView
             android:id="@+id/vodka_button"
@@ -67,7 +68,10 @@
             android:layout_weight="1"
             android:clickable="true"
             android:text="@string/vodka"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"/>
+
 
         <TextView
             android:layout_width="0dp"
@@ -75,7 +79,9 @@
             android:layout_weight="1"
             android:clickable="true"
             android:text="@string/rum"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <TextView
             android:layout_width="0dp"
@@ -83,7 +89,10 @@
             android:layout_weight="1"
             android:clickable="true"
             android:text="@string/gin"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"/>
+
 
     </LinearLayout>
 
@@ -132,21 +141,27 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/tequila"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/whiskey"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/Mixed"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"/>
 
     </LinearLayout>
 
