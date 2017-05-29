@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Coaster</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gin">Gin</string>
+    <string name="rum">Rum</string>
+    <string name="tequila">Tequila</string>
+    <string name="vodka">Vodka</string>
+    <string name="whiskey">Whiskey</string>
 </resources>
