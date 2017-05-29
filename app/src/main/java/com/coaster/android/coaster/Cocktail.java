@@ -13,7 +13,7 @@ public class Cocktail {
     private String description;
 
     public Cocktail() {
-        
+
     }
 
     public Cocktail(String whiskey, String vodka, String gin, String rum, String tequila, String name, String category) {

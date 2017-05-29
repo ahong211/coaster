@@ -14,7 +14,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -29,6 +28,7 @@ public class DrinksFragment extends Fragment {
     DatabaseReference myRef;
     RecyclerView mRecyclerView;
     String drinkKey;
+    String topNode;
 
     Cocktail cocktail = new Cocktail();
 
@@ -45,27 +45,26 @@ public class DrinksFragment extends Fragment {
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
-        final String topNode = "drinks";
+
         myRef = FirebaseDatabase.getInstance().getReference(topNode);
 
-        Query searchVodka = myRef.orderByChild("category").equalTo("Vodka");
-        Query searchWhiskey = myRef.orderByChild("category").equalTo("Whiskey");
+//        Query searchVodka = myRef.orderByChild("category").equalTo("Vodka");
+//        Query searchWhiskey = myRef.orderByChild("category").equalTo("Whiskey");
 
 
-        if (drinkKey == "lookUpVodka") {
+        if (topNode == "whiskey") {
             mCocktailList.clear();
-            callQuery(searchVodka);
+            callQuery(myRef);
         }
-        if (drinkKey == "lookUpWhiskey") {
+        if (topNode == "vodka") {
             mCocktailList.clear();
-            callQuery(searchWhiskey);
+            callQuery(myRef);
         }
-
 
         return view;
     }
 
-    private void callQuery(Query drinkType) {
+    private void callQuery(DatabaseReference drinkType) {
         drinkType.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
