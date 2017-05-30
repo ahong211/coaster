@@ -16,6 +16,10 @@ public class CustomDrinksListFragment extends Fragment {
     // TODO: 5/29/2017 Create list of custom drink files read from external storage on device
     // TODO: 5/29/2017 Create recycler view that displays list of custom drink files
 
+    String[] fileList() {
+        return new String[0];
+    }
+
     public CustomDrinksListFragment() {
         // Required empty public constructor
     }
@@ -27,24 +31,4 @@ public class CustomDrinksListFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_custom_drinks_list, container, false);
     }
 
-
-    // Need to check if media is still available because it could have been moved or deleted by user
-    /* Checks if external storage is available for read and write */
-    public boolean isExternalStorageWritable() {
-        String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
-        return false;
-    }
-
-    /* Checks if external storage is available to at least read */
-    public boolean isExternalStorageReadable() {
-        String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state) ||
-                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-            return true;
-        }
-        return false;
-    }
 }
