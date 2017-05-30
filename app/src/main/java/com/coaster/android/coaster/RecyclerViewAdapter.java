@@ -4,11 +4,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.List;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<MyHolder> {
 
     List<Cocktail> mCocktails;
 
@@ -25,9 +24,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(MyHolder holder, int position) {
-        holder.textView.setText(mCocktails.get(position).getName() + "\n"
-                + mCocktails.get(position).getDescription());
+    public void onBindViewHolder(MyHolder holder, final int position) {
+        holder.textView.setText(mCocktails.get(position).getName());
+
+        holder.mCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String cocktailName = mCocktails.get(position).getName();
+                DrinkInfo drinkInfo = (DrinkInfo) v.getContext();
+                drinkInfo.goToDrinkListFragment();
+                drinkInfo.setDrinkNameNode(cocktailName);
+            }
+        });
     }
 
     @Override
@@ -35,14 +44,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return mCocktails.size();
     }
 
-    public class MyHolder extends RecyclerView.ViewHolder {
-
-        TextView textView;
-
-        public MyHolder(View itemView) {
-            super(itemView);
-
-            textView = (TextView) itemView.findViewById(R.id.textView);
-        }
-    }
 }
