@@ -9,8 +9,6 @@ public class MyHolder extends RecyclerView.ViewHolder {
 
     TextView textView;
     CardView mCardView;
-    TextView textDrinkName;
-    TextView textDrinkDesc;
 
     public MyHolder(View itemView) {
         super(itemView);
@@ -18,7 +16,5 @@ public class MyHolder extends RecyclerView.ViewHolder {
         textView = (TextView) itemView.findViewById(R.id.textView);
         mCardView = (CardView) itemView.findViewById(R.id.cardView);
 
-        textDrinkName = (TextView) itemView.findViewById(R.id.drinkName);
-        textDrinkDesc = (TextView) itemView.findViewById(R.id.drinkDesc);
     }
 }

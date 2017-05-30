@@ -6,17 +6,68 @@
     tools:context="com.coaster.android.coaster.DrinkListInfoFragment">
 
     <TextView
-        android:id="@+id/drinkName"
+        android:layout_gravity="center"
+        android:id="@+id/drinkName_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="what's up"
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/drinkDesc"
+        android:layout_margin="15dp"
+        android:text="Description:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:id="@+id/drinkDesc_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="my ninja"
+        android:textSize="20sp" />
+
+    <TextView
+        android:text="Ingredients:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/ingred1_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/ingred2_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/ingred3_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/ingred4_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/ingred5_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:text="Preparation:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/preparation_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textSize="20sp" />
 
 </LinearLayout>
