@@ -2,25 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="1"
     android:background="#f1f1f1"
+    android:orientation="vertical"
+    android:weightSum="4"
     tools:context="com.coaster.android.coaster.CategoryFragment">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="85dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Coaster V.1"
         android:textColor="#000000"
-        android:textSize="50dp" />
+        android:textSize="50sp"
+        android:layout_weight="1"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/vodka_button"
@@ -60,7 +60,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="30dp"
+        android:layout_weight="1">
 
         <TextView
             android:layout_width="0dp"
@@ -69,8 +70,8 @@
             android:clickable="true"
             android:text="@string/vodka"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
 
         <TextView
@@ -80,8 +81,8 @@
             android:clickable="true"
             android:text="@string/rum"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
@@ -90,9 +91,8 @@
             android:clickable="true"
             android:text="@string/gin"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
-
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -134,43 +134,72 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="30dp"
+        android:layout_weight="1">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/tequila"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/whiskey"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Mixed"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/custom_drinks_button"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:padding="20dp"
-        android:text="Custom Drinks" />
+        android:layout_weight="1"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/custom_drinks_button"
+            style="@style/TextAppearance.AppCompat.Widget.DropDownItem"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:background="@color/colorGrey"
+            android:padding="5dp"
+            android:text="My Cocktail Recipes "
+            android:textColor="@color/colorwhite"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:weightSum="1"
+        android:background="@color/colorPrimary">
+
+
+
+    </LinearLayout>
 
 </LinearLayout>
