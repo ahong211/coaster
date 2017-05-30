@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
     DrinkListInfoFragment mDrinkListInfoFragment;
     FragmentManager manager = getSupportFragmentManager();
 
-
     // TODO: 5/29/2017 Link custom drink fragment to custom drink list fragment
 
     @Override
@@ -24,14 +23,10 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         mDrinksFragment = new DrinksFragment();
         mDrinkListInfoFragment = new DrinkListInfoFragment();
 
-
-
         FragmentTransaction transaction = manager.beginTransaction();
 
         transaction.add(R.id.fragment_container, mCategoryFragment);
         transaction.commit();
-
-
     }
 
     @Override
@@ -74,7 +69,4 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         mDrinkListInfoFragment.drinkName = s;
         mDrinkListInfoFragment.topNode = mDrinksFragment.topNode;
     }
-
-
-
 }

@@ -31,13 +31,10 @@ public class DrinksFragment extends Fragment {
     String drinkKey;
     String topNode;
     boolean activateCrossFade = false;
-
+    Cocktail cocktail = new Cocktail();
     private int mShortAnimationDuration;
-
     private View mRecyclerDrinkView;
     private View mLoadingView;
-
-    Cocktail cocktail = new Cocktail();
 
     public DrinksFragment() {
         // Required empty public constructor
@@ -103,7 +100,6 @@ public class DrinksFragment extends Fragment {
         });
     }
 
-
     private void crossFadeRecyclerView() {
         mRecyclerDrinkView.setAlpha(0f);
         mRecyclerDrinkView.setVisibility(View.VISIBLE);
@@ -113,11 +109,10 @@ public class DrinksFragment extends Fragment {
                 .setDuration(mShortAnimationDuration)
                 .setListener(null);
 
-        if (activateCrossFade == false) {
+        if (!activateCrossFade) {
             crossFadeLoadingSpinner();
             activateCrossFade = true;
-        }
-        else {
+        } else {
             mLoadingView.setVisibility(View.INVISIBLE);
         }
     }
@@ -134,5 +129,4 @@ public class DrinksFragment extends Fragment {
                 });
         activateCrossFade = true;
     }
-
 }

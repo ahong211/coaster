@@ -1,7 +1,6 @@
 package com.coaster.android.coaster;
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +13,12 @@ public class CustomDrinksListFragment extends Fragment {
     // TODO: 5/29/2017 Create list of custom drink files read from external storage on device
     // TODO: 5/29/2017 Create recycler view that displays list of custom drink files
 
-    String[] fileList() {
-        return new String[0];
-    }
-
     public CustomDrinksListFragment() {
         // Required empty public constructor
+    }
+
+    String[] fileList() {
+        return new String[0];
     }
 
     @Override
@@ -28,5 +27,4 @@ public class CustomDrinksListFragment extends Fragment {
 
         return inflater.inflate(R.layout.fragment_custom_drinks_list, container, false);
     }
-
 }

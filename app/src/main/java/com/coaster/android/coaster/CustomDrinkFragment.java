@@ -51,6 +51,7 @@ public class CustomDrinkFragment extends Fragment implements View.OnClickListene
                 Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
             return true;
         }
+
         return false;
     }
 
@@ -67,18 +68,17 @@ public class CustomDrinkFragment extends Fragment implements View.OnClickListene
         if (!file.mkdirs()) {
             Log.e(LOG_TAG, "Directory not created");
         }
+
         return file;
     }
 
     @Override
     public void onClick(View v) {
 
-        if (isExternalStorageReadable() == true) {
-
+        if (isExternalStorageReadable()) {
             getDrinkFileStorageDir(getContext(), "drink_files");
             // TODO: 5/30/2017 save Strings from custom drink to text file
 
         }
-
     }
 }

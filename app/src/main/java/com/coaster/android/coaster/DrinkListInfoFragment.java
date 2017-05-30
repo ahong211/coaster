@@ -29,8 +29,8 @@ public class DrinkListInfoFragment extends Fragment {
     DatabaseReference drinkRef;
     List<Cocktail> drinkCocktail = new ArrayList<>();
     String topNode;
-    private View drinkInfoLayout;
     int mLongAnimationDuration;
+    private View drinkInfoLayout;
 
     public DrinkListInfoFragment() {
         // Required empty public constructor
@@ -96,8 +96,6 @@ public class DrinkListInfoFragment extends Fragment {
 
             }
         });
-
-
     }
 
     private void crossFadeDrinkInfo() {

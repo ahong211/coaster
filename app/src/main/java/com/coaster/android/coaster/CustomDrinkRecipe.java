@@ -1,6 +1,5 @@
 package com.coaster.android.coaster;
 
-
 import java.io.File;
 
 public class CustomDrinkRecipe {
@@ -10,14 +9,6 @@ public class CustomDrinkRecipe {
     private String instruction;
     private File drinkFileName;
 
-    public File getDrinkFileName() {
-        return drinkFileName;
-    }
-
-    public void setDrinkFileName(File drinkFileName) {
-        this.drinkFileName = drinkFileName;
-    }
-
     public CustomDrinkRecipe() {
     }
 
@@ -25,6 +16,14 @@ public class CustomDrinkRecipe {
         this.drinkName = drinkName;
         this.ingredient = ingredient;
         this.instruction = instruction;
+    }
+
+    public File getDrinkFileName() {
+        return drinkFileName;
+    }
+
+    public void setDrinkFileName(File drinkFileName) {
+        this.drinkFileName = drinkFileName;
     }
 
     public String getDrinkName() {
