@@ -1,13 +1,11 @@
 package com.coaster.android.coaster;
 
-
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 
 public class CustomDrinksListFragment extends Fragment {
 
@@ -23,13 +21,11 @@ public class CustomDrinksListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_custom_drinks_list, container, false);
     }
 
-
     // Need to check if media is still available because it could have been moved or deleted by user
-    /* Checks if external storage is available for read and write */
     public boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state)) {
@@ -38,7 +34,6 @@ public class CustomDrinksListFragment extends Fragment {
         return false;
     }
 
-    /* Checks if external storage is available to at least read */
     public boolean isExternalStorageReadable() {
         String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state) ||

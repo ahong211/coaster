@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f1f1f1"
     android:orientation="vertical"
     android:weightSum="1"
-    android:background="#f1f1f1"
     tools:context="com.coaster.android.coaster.CategoryFragment">
 
     <TextView
@@ -15,12 +15,11 @@
         android:gravity="center"
         android:text="Coaster V.1"
         android:textColor="#000000"
-        android:textSize="50dp" />
+        android:textSize="50sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/vodka_button"
@@ -69,9 +68,8 @@
             android:clickable="true"
             android:text="@string/vodka"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
-
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
@@ -80,8 +78,8 @@
             android:clickable="true"
             android:text="@string/rum"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
@@ -90,9 +88,8 @@
             android:clickable="true"
             android:text="@string/gin"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
-
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -142,8 +139,8 @@
             android:layout_weight="1"
             android:text="@string/tequila"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
@@ -151,8 +148,8 @@
             android:layout_weight="1"
             android:text="@string/whiskey"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="0dp"
@@ -160,8 +157,8 @@
             android:layout_weight="1"
             android:text="@string/Mixed"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp" />
 
     </LinearLayout>
 

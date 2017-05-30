@@ -71,7 +71,6 @@ public class DrinksFragment extends Fragment {
                     Log.d(TAG, "onDataChange: " + value.getName());
 
                     mCocktailList.add(value);
-
                 }
 
                 mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
