@@ -1,5 +1,7 @@
 package com.coaster.android.coaster;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +30,12 @@ public class DrinksFragment extends Fragment {
     RecyclerView mRecyclerView;
     String drinkKey;
     String topNode;
+    boolean activateCrossFade = false;
+
+    private int mShortAnimationDuration;
+
+    private View mRecyclerDrinkView;
+    private View mLoadingView;
 
     Cocktail cocktail = new Cocktail();
 
@@ -58,6 +66,15 @@ public class DrinksFragment extends Fragment {
             callQuery(myRef);
         }
 
+        mRecyclerDrinkView = view.findViewById(R.id.recyclerView);
+        mLoadingView = view.findViewById(R.id.loading_spinner);
+
+        mRecyclerDrinkView.setVisibility(View.GONE);
+
+        mShortAnimationDuration = getResources().getInteger(android.R.integer.config_longAnimTime);
+
+        crossFadeRecyclerView();
+
         return view;
     }
 
@@ -85,4 +102,37 @@ public class DrinksFragment extends Fragment {
             }
         });
     }
+
+
+    private void crossFadeRecyclerView() {
+        mRecyclerDrinkView.setAlpha(0f);
+        mRecyclerDrinkView.setVisibility(View.VISIBLE);
+
+        mRecyclerDrinkView.animate()
+                .alpha(1f)
+                .setDuration(mShortAnimationDuration)
+                .setListener(null);
+
+        if (activateCrossFade == false) {
+            crossFadeLoadingSpinner();
+            activateCrossFade = true;
+        }
+        else {
+            mLoadingView.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void crossFadeLoadingSpinner() {
+        mLoadingView.animate()
+                .alpha(0f)
+                .setDuration(2000)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        mLoadingView.setVisibility(View.GONE);
+                    }
+                });
+        activateCrossFade = true;
+    }
+
 }

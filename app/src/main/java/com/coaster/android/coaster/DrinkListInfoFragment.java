@@ -33,6 +33,8 @@ public class DrinkListInfoFragment extends Fragment {
     DatabaseReference drinkRef;
     List<Cocktail> drinkCocktail = new ArrayList<>();
     String topNode;
+    private View drinkInfoLayout;
+    int mLongAnimationDuration;
 
     public DrinkListInfoFragment() {
         // Required empty public constructor
@@ -43,6 +45,8 @@ public class DrinkListInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_drink_list_info, container, false);
+
+        drinkInfoLayout = view.findViewById(R.id.drinkInfoLayout);
 
         drinkNameTextView = (TextView) view.findViewById(R.id.drinkName_TextView);
         drinkDescTextView = (TextView) view.findViewById(R.id.drinkDesc_TextView);
@@ -57,6 +61,9 @@ public class DrinkListInfoFragment extends Fragment {
         drinkRef = FirebaseDatabase.getInstance().getReference(topNode);
         Query searchDrinkName = drinkRef.orderByChild("name").equalTo(drinkName);
 
+        mLongAnimationDuration = getResources().getInteger(android.R.integer.config_longAnimTime);
+
+        crossFadeDrinkInfo();
         callDrinkQuery(searchDrinkName);
 
         return view;
@@ -92,5 +99,17 @@ public class DrinkListInfoFragment extends Fragment {
 
             }
         });
+
+
+    }
+
+    private void crossFadeDrinkInfo() {
+        drinkInfoLayout.setAlpha(0f);
+        drinkInfoLayout.setVisibility(View.VISIBLE);
+
+        drinkInfoLayout.animate()
+                .alpha(1f)
+                .setDuration(800)
+                .setListener(null);
     }
 }
