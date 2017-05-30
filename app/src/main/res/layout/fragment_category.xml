@@ -8,6 +8,7 @@
     android:weightSum="4"
     tools:context="com.coaster.android.coaster.CategoryFragment">
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
@@ -172,22 +173,38 @@
         android:layout_weight="1"
         android:weightSum="1">
 
+        <!--<Button-->
+            <!--android:id="@+id/custom_drinks_button"-->
+            <!--style="@style/TextAppearance.AppCompat.Widget.DropDownItem"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginBottom="30dp"-->
+            <!--android:layout_marginLeft="50dp"-->
+            <!--android:layout_marginRight="50dp"-->
+            <!--android:layout_marginTop="30dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/colorGrey"-->
+            <!--android:padding="5dp"-->
+            <!--android:text="My Cocktail Recipes "-->
+            <!--android:textColor="@color/colorwhite"-->
+            <!--android:textSize="20sp" />-->
+
         <Button
             android:id="@+id/custom_drinks_button"
-            style="@style/TextAppearance.AppCompat.Widget.DropDownItem"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_weight="1"
-            android:background="@color/colorGrey"
-            android:padding="5dp"
             android:text="My Cocktail Recipes "
-            android:textColor="@color/colorwhite"
-            android:textSize="20sp" />
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#FFA408"
+            android:shadowDx="2"
+            android:shadowDy="1"
+            android:shadowRadius="0" />
 
     </LinearLayout>
 
