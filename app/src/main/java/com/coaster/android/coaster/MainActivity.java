@@ -5,10 +5,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements ButtonPress {
+public class MainActivity extends AppCompatActivity implements ButtonPress, DrinkInfo {
     CategoryFragment mCategoryFragment;
     DrinksFragment mDrinksFragment;
     CustomDrinksListFragment mCustomDrinksListFragment;
+    DrinkListInfoFragment mDrinkListInfoFragment;
     FragmentManager manager = getSupportFragmentManager();
     // TODO: 5/29/2017 Link custom drink fragment to custom drink list fragment
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements ButtonPress {
 
         mCategoryFragment = new CategoryFragment();
         mDrinksFragment = new DrinksFragment();
+        mDrinkListInfoFragment = new DrinkListInfoFragment();
 
         FragmentTransaction transaction = manager.beginTransaction();
 
@@ -51,5 +53,19 @@ public class MainActivity extends AppCompatActivity implements ButtonPress {
     @Override
     public void whiskeyStringKey() {
         mDrinksFragment.topNode = "whiskey";
+    }
+
+    @Override
+    public void goToDrinkListFragment() {
+        FragmentTransaction drinkTransaction = manager.beginTransaction();
+        drinkTransaction.replace(R.id.fragment_container, mDrinkListInfoFragment);
+        drinkTransaction.addToBackStack(null);
+        drinkTransaction.commit();
+    }
+
+    @Override
+    public void setDrinkNameNode(String s) {
+        mDrinkListInfoFragment.drinkName = s;
+        mDrinkListInfoFragment.topNode = mDrinksFragment.topNode;
     }
 }
