@@ -8,5 +8,8 @@
     <string name="vodka">Vodka</string>
     <string name="whiskey">Whiskey</string>
     <string name="Mixed">Mixed</string>
+    <string name="preparation">Preparation:</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="description">Description:</string>
 
 </resources>

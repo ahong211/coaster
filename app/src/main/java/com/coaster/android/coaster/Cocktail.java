@@ -20,15 +20,9 @@ public class Cocktail {
 
     }
 
-    public Cocktail(String name) {
-        this.name = name;
-    }
-
-
     public String getName() {
         return name;
     }
-
 
     public String getDescription() {
         return description;
@@ -38,9 +32,11 @@ public class Cocktail {
         if (ingred1 == null) {
             return "";
         }
+
         if (measure1 != null) {
             return ingred1;
         }
+
         return "- " + ingred1;
     }
 
@@ -48,9 +44,11 @@ public class Cocktail {
         if (ingred2 == null) {
             return "";
         }
+
         if (measure2 != null) {
             return ingred2;
         }
+
         return "- " + ingred2;
     }
 
@@ -58,9 +56,11 @@ public class Cocktail {
         if (ingred3 == null) {
             return "";
         }
+
         if (measure3 != null) {
             return ingred3;
         }
+
         return "- " + ingred3;
     }
 
@@ -68,9 +68,11 @@ public class Cocktail {
         if (ingred4 == null) {
             return "";
         }
+
         if (measure4 != null) {
             return ingred4;
         }
+
         return "- " + ingred4;
     }
 
@@ -78,9 +80,11 @@ public class Cocktail {
         if (ingred5 == null) {
             return "";
         }
+
         if (measure5 != null) {
             return ingred5;
         }
+
         return "- " + ingred5;
     }
 
@@ -88,6 +92,7 @@ public class Cocktail {
         if (measure1 == null) {
             return "";
         }
+
         return "- " + measure1;
     }
 
@@ -95,6 +100,7 @@ public class Cocktail {
         if (measure2 == null) {
             return "";
         }
+
         return "- " + measure2;
     }
 
@@ -102,6 +108,7 @@ public class Cocktail {
         if (measure3 == null) {
             return "";
         }
+
         return "- " + measure3;
     }
 
@@ -109,6 +116,7 @@ public class Cocktail {
         if (measure4 == null) {
             return "";
         }
+
         return "- " + measure4;
     }
 
@@ -116,6 +124,7 @@ public class Cocktail {
         if (measure5 == null) {
             return "";
         }
+
         return "- " + measure5;
     }
 
