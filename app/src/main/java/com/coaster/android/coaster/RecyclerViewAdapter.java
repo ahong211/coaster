@@ -25,7 +25,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyHolder> {
 
     @Override
     public void onBindViewHolder(MyHolder holder, final int position) {
-        holder.textView.setText(mCocktails.get(position).getName());
+        holder.cardDrinkTitle.setText(mCocktails.get(position).getName());
+        holder.cardDrinkDesc.setText(mCocktails.get(position).getDescription());
 
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
