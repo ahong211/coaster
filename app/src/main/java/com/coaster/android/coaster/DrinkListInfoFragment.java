@@ -24,11 +24,7 @@ public class DrinkListInfoFragment extends Fragment {
     String drinkName;
     TextView drinkNameTextView;
     TextView drinkDescTextView;
-    TextView ingred1TextView;
-    TextView ingred2TextView;
-    TextView ingred3TextView;
-    TextView ingred4TextView;
-    TextView ingred5TextView;
+    TextView ingrediantsTextView;
     TextView prepTextView;
     DatabaseReference drinkRef;
     List<Cocktail> drinkCocktail = new ArrayList<>();
@@ -47,11 +43,7 @@ public class DrinkListInfoFragment extends Fragment {
         drinkNameTextView = (TextView) view.findViewById(R.id.drinkName_TextView);
         drinkDescTextView = (TextView) view.findViewById(R.id.drinkDesc_TextView);
 
-        ingred1TextView = (TextView) view.findViewById(R.id.ingred1_TextView);
-        ingred2TextView = (TextView) view.findViewById(R.id.ingred2_TextView);
-        ingred3TextView = (TextView) view.findViewById(R.id.ingred3_TextView);
-        ingred4TextView = (TextView) view.findViewById(R.id.ingred4_TextView);
-        ingred5TextView = (TextView) view.findViewById(R.id.ingred5_TextView);
+        ingrediantsTextView = (TextView) view.findViewById(R.id.ingred1_TextView);
         prepTextView = (TextView) view.findViewById(R.id.preparation_TextView);
 
         drinkRef = FirebaseDatabase.getInstance().getReference(topNode);
@@ -77,13 +69,18 @@ public class DrinkListInfoFragment extends Fragment {
 
                 drinkNameTextView.setText(drinkCocktail.get(0).getName());
                 drinkDescTextView.setText(drinkCocktail.get(0).getDescription());
-                ingred1TextView.setText(drinkCocktail.get(0).getMeasure1() + drinkCocktail.get(0).getIngred1());
-                ingred2TextView.setText(drinkCocktail.get(0).getMeasure2() + drinkCocktail.get(0).getIngred2());
-                ingred3TextView.setText(drinkCocktail.get(0).getMeasure3() + drinkCocktail.get(0).getIngred3());
-                ingred4TextView.setText(drinkCocktail.get(0).getMeasure4() + drinkCocktail.get(0).getIngred4());
-                ingred5TextView.setText(drinkCocktail.get(0).getMeasure5() + drinkCocktail.get(0).getIngred5());
-                prepTextView.setText(drinkCocktail.get(0).getPrep());
 
+                String result = "";
+                StringBuilder sb = new StringBuilder();
+                sb.append(drinkCocktail.get(0).getMeasure1() + drinkCocktail.get(0).getIngred1() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure2() + drinkCocktail.get(0).getIngred2() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure3() + drinkCocktail.get(0).getIngred3() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure4() + drinkCocktail.get(0).getIngred4() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure5() + drinkCocktail.get(0).getIngred5());
+                result = sb.toString().trim();
+                ingrediantsTextView.setText(result);
+
+                prepTextView.setText(drinkCocktail.get(0).getPrep());
                 drinkCocktail.clear();
             }
 
