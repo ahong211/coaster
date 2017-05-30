@@ -44,5 +44,4 @@ public class CategoryAdapter extends RecyclerView.Adapter<MyHolder> {
     public int getItemCount() {
         return mCocktails.size();
     }
-
 }

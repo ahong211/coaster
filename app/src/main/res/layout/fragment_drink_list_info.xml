@@ -1,24 +1,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-              android:orientation="vertical"
-             tools:context="com.coaster.android.coaster.DrinkListInfoFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.coaster.android.coaster.DrinkListInfoFragment">
 
     <TextView
         android:id="@+id/drinkName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="what's up"/>
+        android:text="what's up"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/drinkDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="my ninja"/>
-
-
+        android:text="my ninja"
+        android:textSize="20sp" />
 
 </LinearLayout>

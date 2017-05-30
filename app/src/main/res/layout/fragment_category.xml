@@ -174,7 +174,7 @@
         <Button
             android:id="@+id/custom_drinks_button"
             style="@style/TextAppearance.AppCompat.Widget.DropDownItem"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:layout_marginBottom="30dp"
