@@ -29,7 +29,9 @@ TextView drinkDesc_TextView;
 
         drinkName_TextView = (TextView)v.findViewById(R.id.drinkDetails);
         drinkDesc_TextView = (TextView) v.findViewById(R.id.drinkDescription);
-        drinkName_TextView.setText(CategoryAdapter.sA.get(1));
+        Bundle b = getArguments();
+        String s =  b.getString("key");
+        drinkName_TextView.setText(s);
         return v;
 
     }

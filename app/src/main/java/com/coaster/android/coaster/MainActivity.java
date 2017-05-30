@@ -49,19 +49,20 @@ public class MainActivity extends AppCompatActivity implements ButtonPress{
     }
 
 
-    public void drinkDetailsFragmentMethod(View view) {
-
-        if(mDrinkDetails == null){
-            mDrinkDetails = new DrinkDetails();
-        }
-
-        FragmentTransaction drinkTransaction = manager.beginTransaction();
-        drinkTransaction.replace(R.id.fragment_container, mDrinkDetails);
-        drinkTransaction.addToBackStack(null);
-        drinkTransaction.commit();
-
-
-    }
+//    public void drinkDetailsFragmentMethod(View v) {
+//
+//
+//
+//        if(mDrinkDetails == null){
+//            mDrinkDetails = new DrinkDetails();
+//        }
+//
+//        FragmentTransaction drinkTransaction = manager.beginTransaction();
+//        drinkTransaction.replace(R.id.fragment_container, mDrinkDetails);
+//        drinkTransaction.addToBackStack(null);
+//        drinkTransaction.commit();
+//
+//    }
 
 
 }
