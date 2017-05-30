@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f1f1f1"
     android:orientation="vertical"
     tools:context="com.coaster.android.coaster.DrinkListInfoFragment">
 
@@ -10,29 +11,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="what's up"
-        android:textSize="20sp" />
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="20dp"
+        android:text="DRINK TITLE"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="40sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
         android:text="@string/description"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/drinkDesc_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="my ninja"
+        android:layout_margin="0dp"
+        android:padding="20dp"
+        android:text="thi drink is one of the best drinks there is it is filled with tons of bla bla  uihriueh r uehr eu reu r ue rue ruie rie ru euir eui reiu rui ehru eu reuh ruehr iueh ruehriue riueh rue hriuehrheir"
         android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="10dp"
         android:text="@string/ingredients"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -73,9 +83,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
+        android:layout_marginLeft="6dp"
         android:layout_marginTop="15dp"
         android:text="@string/preparation"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
