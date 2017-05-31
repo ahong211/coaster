@@ -83,7 +83,14 @@ public class DrinkListInfoFragment extends Fragment {
                 sb.append(drinkCocktail.get(0).getMeasure2() + drinkCocktail.get(0).getIngred2() + "\n");
                 sb.append(drinkCocktail.get(0).getMeasure3() + drinkCocktail.get(0).getIngred3() + "\n");
                 sb.append(drinkCocktail.get(0).getMeasure4() + drinkCocktail.get(0).getIngred4() + "\n");
-                sb.append(drinkCocktail.get(0).getMeasure5() + drinkCocktail.get(0).getIngred5());
+                sb.append(drinkCocktail.get(0).getMeasure5() + drinkCocktail.get(0).getIngred5() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure6() + drinkCocktail.get(0).getIngred6() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure7() + drinkCocktail.get(0).getIngred7() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure8() + drinkCocktail.get(0).getIngred8() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure9() + drinkCocktail.get(0).getIngred9() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure10() + drinkCocktail.get(0).getIngred10() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure11() + drinkCocktail.get(0).getIngred11() + "\n");
+                sb.append(drinkCocktail.get(0).getMeasure12() + drinkCocktail.get(0).getIngred12());
                 result = sb.toString().trim();
                 ingrediantsTextView.setText(result);
 

@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="75dp"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center"
@@ -190,25 +190,27 @@
 
         <Button
             android:id="@+id/custom_drinks_button"
+            android:text="My Cocktail Recipes"
+            android:textColor="@color/colorwhite"
             android:layout_width="0dp"
             android:layout_height="30dp"
+            android:layout_gravity="center"
             android:layout_marginLeft="60dp"
             android:layout_marginRight="60dp"
             android:layout_weight="1"
             android:background="@drawable/buttonshape"
+            android:paddingTop="2dp"
             android:shadowColor="#FFA408"
             android:shadowDx="2"
             android:shadowDy="1"
-            android:shadowRadius="0"
-            android:text="@string/my_cocktail_recipes"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-
+            android:shadowRadius="0" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="1"
         android:background="@color/colorPrimary" />
+
 </LinearLayout>

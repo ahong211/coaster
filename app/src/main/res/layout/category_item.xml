@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#f1f1f1"
@@ -7,14 +8,15 @@
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="225dp"
+        android:layout_height="235dp"
         android:layout_margin="20dp"
-        android:clickable="true">
+        android:clickable="true"
+        app:cardBackgroundColor="#282828"
+        app:cardCornerRadius="12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
             android:orientation="vertical">
 
             <TextView
@@ -22,35 +24,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@color/colorwhite"
+                android:padding="4dp"
                 android:text="Bloody Mary"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="35sp" />
+                android:textColor="@color/colorwhite"
+                android:textSize="25sp"
+                android:textStyle="italic|bold" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="3dp"
-                android:background="@color/colorAccent" />
+                android:layout_height="3dp"
+                android:layout_marginTop="0dp"
+                android:background="@color/colorPrimary"/>
+                <!--android:background="#d73e3e" -->
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/colorwhite"
+                android:paddingBottom="10dp">
 
                 <ImageView
                     android:id="@+id/card_drink_img"
                     android:layout_width="160dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="15dp"
-                    android:src="@drawable/bloodymary" />
-
+                    android:background="@color/colorwhite"
+                    android:src="@drawable/whiskeysour" />
                 <TextView
                     android:id="@+id/card_drink_desc"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginTop="15dp"
+                    android:paddingLeft="10dp"
                     android:height="180dp"
+                    android:background="@color/colorwhite"
                     android:text="These tasty bloody marys will keep you coming back for more..."
                     android:textSize="20sp" />
 
