@@ -18,6 +18,5 @@ public class MyHolder extends RecyclerView.ViewHolder {
         cardDrinkTitle = (TextView) itemView.findViewById(R.id.card_drink_title);
         cardDrinkDesc = (TextView) itemView.findViewById(R.id.card_drink_desc);
         mCardView = (CardView) itemView.findViewById(R.id.cardView);
-
     }
 }

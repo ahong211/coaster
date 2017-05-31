@@ -4,16 +4,12 @@ public class Cocktail {
 
     private String name;
     private String description;
-    private String ingred1;
-    private String ingred2;
-    private String ingred3;
-    private String ingred4;
-    private String ingred5;
-    private String measure1;
-    private String measure2;
-    private String measure3;
-    private String measure4;
-    private String measure5;
+    private String ingred1, ingred2, ingred3, ingred4, ingred5, ingred6, ingred7, ingred8,
+    ingred9, ingred10, ingred11, ingred12;
+
+    private String measure1, measure2, measure3, measure4, measure5, measure6, measure7, measure8,
+    measure9, measure10, measure11, measure12;
+
     private String prep;
 
     public Cocktail() {
@@ -88,6 +84,90 @@ public class Cocktail {
         return "- " + ingred5;
     }
 
+    public String getIngred6() {
+        if (ingred6 == null) {
+            return "";
+        }
+
+        if (measure6 != null) {
+            return ingred6;
+        }
+
+        return "- " + ingred6;
+    }
+
+    public String getIngred7() {
+        if (ingred7 == null) {
+            return "";
+        }
+
+        if (measure7 != null) {
+            return ingred7;
+        }
+
+        return "- " + ingred7;
+    }
+
+    public String getIngred8() {
+        if (ingred8 == null) {
+            return "";
+        }
+
+        if (measure8 != null) {
+            return ingred8;
+        }
+
+        return "- " + ingred8;
+    }
+
+    public String getIngred9() {
+        if (ingred9 == null) {
+            return "";
+        }
+
+        if (measure9 != null) {
+            return ingred9;
+        }
+
+        return "- " + ingred9;
+    }
+
+    public String getIngred10() {
+        if (ingred10 == null) {
+            return "";
+        }
+
+        if (measure10 != null) {
+            return ingred10;
+        }
+
+        return "- " + ingred10;
+    }
+
+    public String getIngred11() {
+        if (ingred11 == null) {
+            return "";
+        }
+
+        if (measure11 != null) {
+            return ingred11;
+        }
+
+        return "- " + ingred11;
+    }
+
+    public String getIngred12() {
+        if (ingred12 == null) {
+            return "";
+        }
+
+        if (measure12 != null) {
+            return ingred12;
+        }
+
+        return "- " + ingred12;
+    }
+
     public String getMeasure1() {
         if (measure1 == null) {
             return "";
@@ -126,6 +206,62 @@ public class Cocktail {
         }
 
         return "- " + measure5;
+    }
+
+    public String getMeasure6() {
+        if (measure6 == null) {
+            return "";
+        }
+
+        return "- " + measure6;
+    }
+
+    public String getMeasure7() {
+        if (measure7 == null) {
+            return "";
+        }
+
+        return "- " + measure7;
+    }
+
+    public String getMeasure8() {
+        if (measure8 == null) {
+            return "";
+        }
+
+        return "- " + measure8;
+    }
+
+    public String getMeasure9() {
+        if (measure9 == null) {
+            return "";
+        }
+
+        return "- " + measure9;
+    }
+
+    public String getMeasure10() {
+        if (measure10 == null) {
+            return "";
+        }
+
+        return "- " + measure10;
+    }
+
+    public String getMeasure11() {
+        if (measure11 == null) {
+            return "";
+        }
+
+        return "- " + measure11;
+    }
+
+    public String getMeasure12() {
+        if (measure12 == null) {
+            return "";
+        }
+
+        return "- " + measure12;
     }
 
     public String getPrep() {
