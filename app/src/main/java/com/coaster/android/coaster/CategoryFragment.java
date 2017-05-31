@@ -55,10 +55,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         whiskeyButton = (ImageView) view.findViewById(R.id.whiskey_button);
         customDrinksButton = (Button) view.findViewById(R.id.custom_drinks_button);
 
-        saveVodkaImageToStorage(imageReference, vodkaButton);
-        saveRumImageToStorage(imageReference, rumButton);
         saveGinImageToStorage(imageReference, ginButton);
+        saveRumImageToStorage(imageReference, rumButton);
         saveTequilaImageToStorage(imageReference, tequilaButton);
+        saveVodkaImageToStorage(imageReference, vodkaButton);
         saveWhiskeyImageToStorage(imageReference, whiskeyButton);
 
         // TODO: Add mixed drink image to Firebase Storage.
@@ -73,10 +73,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    private void saveVodkaImageToStorage(StorageReference imageReference, ImageView vodka) {
-        StorageReference vodkaReference = imageReference.child("vodkatransparent.png");
-        byte[] data = convertImageToBytes(vodka);
-        uploadImageToStorage(vodkaReference, data);
+    private void saveGinImageToStorage(StorageReference imageReference, ImageView gin) {
+        StorageReference ginReference = imageReference.child("gin.png");
+        byte[] data = convertImageToBytes(gin);
+        uploadImageToStorage(ginReference, data);
     }
 
     private void saveRumImageToStorage(StorageReference imageReference, ImageView rum) {
@@ -85,16 +85,16 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         uploadImageToStorage(rumReference, data);
     }
 
-    private void saveGinImageToStorage(StorageReference imageReference, ImageView gin) {
-        StorageReference ginReference = imageReference.child("gin.png");
-        byte[] data = convertImageToBytes(gin);
-        uploadImageToStorage(ginReference, data);
-    }
-
     private void saveTequilaImageToStorage(StorageReference imageReference, ImageView tequila) {
         StorageReference tequilaReference = imageReference.child("tequila.png");
         byte[] data = convertImageToBytes(tequila);
         uploadImageToStorage(tequilaReference, data);
+    }
+
+    private void saveVodkaImageToStorage(StorageReference imageReference, ImageView vodka) {
+        StorageReference vodkaReference = imageReference.child("vodkatransparent.png");
+        byte[] data = convertImageToBytes(vodka);
+        uploadImageToStorage(vodkaReference, data);
     }
 
     private void saveWhiskeyImageToStorage(StorageReference imageReference, ImageView whiskey) {
