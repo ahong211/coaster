@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements ButtonPress, DrinkInfo {
     CategoryFragment mCategoryFragment;
@@ -59,11 +58,13 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
     @Override
     public void vodkaStringKey() {
+        mDrinksFragment.positionIndex = -1;
         mDrinksFragment.topNode = "vodka";
     }
 
     @Override
     public void whiskeyStringKey() {
+        mDrinksFragment.positionIndex = -1;
         mDrinksFragment.topNode = "whiskey";
     }
 

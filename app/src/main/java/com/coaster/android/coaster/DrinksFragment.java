@@ -23,18 +23,20 @@ import java.util.Objects;
 
 public class DrinksFragment extends Fragment {
 
-    private static final String TAG = CategoryFragment.class.getSimpleName() + "_TAG";
+    private static final String TAG = MainActivity.class.getSimpleName() + "_TAG";
 
     List<Cocktail> mCocktailList = new ArrayList<>();
     DatabaseReference myRef;
     RecyclerView mRecyclerView;
-    String drinkKey;
     String topNode;
     boolean activateCrossFade = false;
     Cocktail cocktail = new Cocktail();
     private int mShortAnimationDuration;
-    private View mRecyclerDrinkView;
     private View mLoadingView;
+    int positionIndex = -1;
+    LinearLayoutManager mLayoutManager;
+    int topScreenView;
+
 
     public DrinksFragment() {
         // Required empty public constructor
@@ -63,13 +65,9 @@ public class DrinksFragment extends Fragment {
             callQuery(myRef);
         }
 
-        mRecyclerDrinkView = view.findViewById(R.id.recyclerView);
         mLoadingView = view.findViewById(R.id.loading_spinner);
-
-        mRecyclerDrinkView.setVisibility(View.GONE);
-
+        mRecyclerView.setVisibility(View.GONE);
         mShortAnimationDuration = getResources().getInteger(android.R.integer.config_longAnimTime);
-
         crossFadeRecyclerView();
 
         return view;
@@ -86,11 +84,13 @@ public class DrinksFragment extends Fragment {
 
                     mCocktailList.add(value);
                 }
+                mLayoutManager = new LinearLayoutManager(getContext());
 
-                mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                mRecyclerView.setLayoutManager(mLayoutManager);
                 RecyclerViewAdapter adapter = new RecyclerViewAdapter(mCocktailList);
                 mRecyclerView.setAdapter(adapter);
 
+                onResume();
             }
 
             @Override
@@ -101,10 +101,10 @@ public class DrinksFragment extends Fragment {
     }
 
     private void crossFadeRecyclerView() {
-        mRecyclerDrinkView.setAlpha(0f);
-        mRecyclerDrinkView.setVisibility(View.VISIBLE);
+        mRecyclerView.setAlpha(0f);
+        mRecyclerView.setVisibility(View.VISIBLE);
 
-        mRecyclerDrinkView.animate()
+        mRecyclerView.animate()
                 .alpha(1f)
                 .setDuration(mShortAnimationDuration)
                 .setListener(null);
@@ -128,5 +128,23 @@ public class DrinksFragment extends Fragment {
                     }
                 });
         activateCrossFade = true;
+    }
+
+    @Override
+    public void onPause() {
+        positionIndex = mLayoutManager.findFirstVisibleItemPosition();
+        View startView = mRecyclerView.getChildAt(0);
+        topScreenView = (startView == null) ? 0 : (startView.getTop() - mRecyclerView.getPaddingTop());
+        Log.d(TAG, "onPause: " + topScreenView);
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        if (positionIndex != -1) {
+            mLayoutManager.scrollToPositionWithOffset(positionIndex, topScreenView);
+        }
+        Log.d(TAG, "onResume: is called");
+        super.onResume();
     }
 }
