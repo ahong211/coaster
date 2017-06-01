@@ -1,7 +1,6 @@
 package com.coaster.android.coaster;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,13 +28,12 @@ public class DrinksFragment extends Fragment {
     DatabaseReference myRef;
     RecyclerView mRecyclerView;
     String topNode;
-    boolean activateCrossFade = false;
     Cocktail cocktail = new Cocktail();
     int positionIndex = -1;
     LinearLayoutManager mLayoutManager;
     int topScreenView;
     private int mShortAnimationDuration;
-    private View mLoadingView;
+    private ProgressDialog progressDialog;
 
     public DrinksFragment() {
         // Required empty public constructor
@@ -48,9 +46,11 @@ public class DrinksFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_drinks, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        progressDialog = new ProgressDialog(getContext());
 
         myRef = FirebaseDatabase.getInstance().getReference(topNode);
 
+        // FIXME: do not delete just yet.
 //        Query searchVodka = myRef.orderByChild("category").equalTo("Vodka");
 //        Query searchWhiskey = myRef.orderByChild("category").equalTo("Whiskey");
 
@@ -64,7 +64,6 @@ public class DrinksFragment extends Fragment {
             callQuery(myRef);
         }
 
-        mLoadingView = view.findViewById(R.id.loading_spinner);
         mRecyclerView.setVisibility(View.GONE);
         mShortAnimationDuration = getResources().getInteger(android.R.integer.config_longAnimTime);
         crossFadeRecyclerView();
@@ -73,6 +72,10 @@ public class DrinksFragment extends Fragment {
     }
 
     private void callQuery(DatabaseReference drinkType) {
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setMessage("Fetching Drinks...");
+        progressDialog.show();
+
         drinkType.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -89,6 +92,8 @@ public class DrinksFragment extends Fragment {
                 RecyclerViewAdapter adapter = new RecyclerViewAdapter(mCocktailList);
                 mRecyclerView.setAdapter(adapter);
 
+                progressDialog.dismiss();
+
                 onResume();
             }
 
@@ -102,31 +107,10 @@ public class DrinksFragment extends Fragment {
     private void crossFadeRecyclerView() {
         mRecyclerView.setAlpha(0f);
         mRecyclerView.setVisibility(View.VISIBLE);
-
         mRecyclerView.animate()
                 .alpha(1f)
                 .setDuration(mShortAnimationDuration)
                 .setListener(null);
-
-        if (!activateCrossFade) {
-            crossFadeLoadingSpinner();
-            activateCrossFade = true;
-        } else {
-            mLoadingView.setVisibility(View.INVISIBLE);
-        }
-    }
-
-    private void crossFadeLoadingSpinner() {
-        mLoadingView.animate()
-                .alpha(0f)
-                .setDuration(2000)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        mLoadingView.setVisibility(View.GONE);
-                    }
-                });
-        activateCrossFade = true;
     }
 
     @Override
