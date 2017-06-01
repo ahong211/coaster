@@ -190,8 +190,6 @@
 
         <Button
             android:id="@+id/custom_drinks_button"
-            android:text="My Cocktail Recipes"
-            android:textColor="@color/colorwhite"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -203,7 +201,9 @@
             android:shadowColor="#FFA408"
             android:shadowDx="2"
             android:shadowDy="1"
-            android:shadowRadius="0" />
+            android:shadowRadius="0"
+            android:text="My Cocktail Recipes"
+            android:textColor="@color/colorwhite" />
     </LinearLayout>
 
     <LinearLayout

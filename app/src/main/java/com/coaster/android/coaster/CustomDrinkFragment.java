@@ -19,16 +19,14 @@ import java.io.OutputStreamWriter;
 
 public class CustomDrinkFragment extends Fragment implements View.OnClickListener {
 
-    private String albumName = "drink_files";
     private static final String LOG_TAG = "MAC_TAG";
+    EditText nameEditText;
     // TODO: 5/31/2017 convert saved text file to pojo then build recycler view
     // TODO: 5/30/2017 create recyclerview with list of custom drinks read from external storage
-
-
-    EditText nameEditText;
     EditText ingredientEditText;
     EditText instructionEditText;
     Button saveCustomDrink;
+    private String albumName = "drink_files";
 
     public CustomDrinkFragment() {
         // Required empty public constructor
@@ -53,40 +51,28 @@ public class CustomDrinkFragment extends Fragment implements View.OnClickListene
     // Need to check if media is still available because it could have been moved or deleted by user
     public boolean isExternalStorageReadable() {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state) ||
-                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-            return true;
-        }
-
-        return false;
+        return Environment.MEDIA_MOUNTED.equals(state) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
 
     // Method for creating new file names
     private String createNewFile() {
-        StringBuilder nameBuilder = new StringBuilder();
-
-        nameBuilder.append(nameEditText.getText().toString());
-        nameBuilder.append(".txt");
-
-        String drinkFileName = nameBuilder.toString();
-
-        return drinkFileName;
+        return nameEditText.getText().toString() + ".txt";
     }
 
     // method to get path to drink files
     public File getDrinkFileStorageDir(Context context) {
         // get path to external files directory
-        File pathToExternalFilesDir = context.getExternalFilesDir(
-                Environment.DIRECTORY_DOCUMENTS);
-        return pathToExternalFilesDir;
+        return context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
     }
 
     @Override
     public void onClick(View v) {
 
-        if (isExternalStorageReadable() == true) {
+        if (isExternalStorageReadable()) {
             //to this path add a new directory path and create new App dir in /documents Dir
-            File appDirectory = new File(getDrinkFileStorageDir(getContext()).getAbsolutePath() + albumName);
+            File appDirectory = new File(getDrinkFileStorageDir
+                    (getContext()).getAbsolutePath() + albumName);
             // appDirectory.mkdirs();
             if (!getDrinkFileStorageDir(getContext()).mkdirs()) {
                 Log.e(LOG_TAG, "Directory not created");
@@ -109,7 +95,6 @@ public class CustomDrinkFragment extends Fragment implements View.OnClickListene
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
 }

@@ -5,10 +5,10 @@ public class Cocktail {
     private String name;
     private String description;
     private String ingred1, ingred2, ingred3, ingred4, ingred5, ingred6, ingred7, ingred8,
-    ingred9, ingred10, ingred11, ingred12;
+            ingred9, ingred10, ingred11, ingred12;
 
     private String measure1, measure2, measure3, measure4, measure5, measure6, measure7, measure8,
-    measure9, measure10, measure11, measure12;
+            measure9, measure10, measure11, measure12;
 
     private String prep;
 

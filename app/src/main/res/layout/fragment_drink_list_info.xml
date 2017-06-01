@@ -11,12 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
             <TextView
                 android:id="@+id/drinkName_TextView"
@@ -35,7 +33,7 @@
                 android:layout_margin="6dp"
                 android:text="@string/description"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -50,7 +48,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="15dp"
                 android:text="@string/ingredients"
                 android:textColor="@color/colorPrimaryDark"
@@ -70,7 +68,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/preparation"
                 android:textColor="@color/colorPrimaryDark"
@@ -88,4 +86,5 @@
         </LinearLayout>
 
     </ScrollView>
+
 </FrameLayout>

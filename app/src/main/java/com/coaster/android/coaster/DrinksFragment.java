@@ -31,12 +31,11 @@ public class DrinksFragment extends Fragment {
     String topNode;
     boolean activateCrossFade = false;
     Cocktail cocktail = new Cocktail();
-    private int mShortAnimationDuration;
-    private View mLoadingView;
     int positionIndex = -1;
     LinearLayoutManager mLayoutManager;
     int topScreenView;
-
+    private int mShortAnimationDuration;
+    private View mLoadingView;
 
     public DrinksFragment() {
         // Required empty public constructor

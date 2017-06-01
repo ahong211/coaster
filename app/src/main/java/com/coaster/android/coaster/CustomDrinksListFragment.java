@@ -1,7 +1,6 @@
 package com.coaster.android.coaster;
 
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,12 +16,12 @@ public class CustomDrinksListFragment extends Fragment implements View.OnClickLi
 
     FloatingActionButton addNewDrinkActionButton;
 
-    String[] fileList() {
-        return new String[0];
-    }
-
     public CustomDrinksListFragment() {
         // Required empty public constructor
+    }
+
+    String[] fileList() {
+        return new String[0];
     }
 
     @Override
