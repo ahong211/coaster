@@ -13,5 +13,6 @@
     <string name="instruction">Instruction</string>
     <string name="my_cocktail_recipes">My Cocktail Recipes</string>
     <string name="bloody_mary">Bloody Mary</string>
+    <string name="search">Search</string>
 
 </resources>

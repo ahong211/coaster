@@ -1,13 +1,18 @@
 package com.coaster.android.coaster;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.storage.StorageReference;
 
@@ -28,6 +33,12 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
 
     public CategoryFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -121,5 +132,24 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
 
                 break;
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.options_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.search:
+
+                Toast.makeText(getContext(), "Search works", Toast.LENGTH_SHORT).show();
+
+                break;
+        }
+
+        return false;
     }
 }
