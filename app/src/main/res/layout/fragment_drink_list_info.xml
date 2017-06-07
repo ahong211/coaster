@@ -1,22 +1,20 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:id="@+id/drinkInfoLayout"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="#f1f1f1"
-             android:orientation="vertical"
-             tools:context="com.coaster.android.coaster.DrinkListInfoFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drinkInfoLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1"
+    android:orientation="vertical"
+    tools:context="com.coaster.android.coaster.DrinkListInfoFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
             <TextView
                 android:id="@+id/drinkName_TextView"
@@ -27,7 +25,7 @@
                 android:layout_marginTop="20dp"
                 android:text="DRINK TITLE"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="40sp"/>
+                android:textSize="40sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -36,7 +34,7 @@
                 android:text="@string/description"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/drinkDesc_TextView"
@@ -45,7 +43,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -55,7 +53,7 @@
                 android:text="@string/ingredients"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/ingred1_TextView"
@@ -64,7 +62,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView"
@@ -75,7 +73,7 @@
                 android:text="@string/preparation"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/preparation_TextView"
@@ -84,8 +82,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
-                android:textSize="20sp"/>
-
+                android:textSize="20sp" />
 
         </LinearLayout>
 

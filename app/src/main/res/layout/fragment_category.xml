@@ -29,10 +29,10 @@
             android:layout_margin="0dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:clickable="true"
             android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
             android:padding="10dp"
-            android:src="@drawable/vodkatransparent"/>
+            android:src="@drawable/vodkatransparent" />
 
         <ImageView
             android:id="@+id/rum_button"
@@ -40,10 +40,10 @@
             android:layout_height="130dp"
             android:layout_margin="0dp"
             android:layout_weight="1"
-            android:clickable="true"
             android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
             android:padding="0dp"
-            android:src="@drawable/rum"/>
+            android:src="@drawable/rum" />
 
         <ImageView
             android:id="@+id/gin_button"
@@ -51,10 +51,10 @@
             android:layout_height="130dp"
             android:layout_margin="0dp"
             android:layout_weight="1"
-            android:clickable="true"
             android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
             android:padding="5dp"
-            android:src="@drawable/gin"/>
+            android:src="@drawable/gin" />
 
     </LinearLayout>
 
@@ -105,9 +105,9 @@
             android:layout_height="130dp"
             android:layout_margin="0dp"
             android:layout_weight="1"
-            android:padding="5dp"
             android:background="?android:attr/selectableItemBackground"
-            android:src="@drawable/tequila"/>
+            android:padding="5dp"
+            android:src="@drawable/tequila" />
 
         <ImageView
             android:id="@+id/whiskey_button"
@@ -115,9 +115,9 @@
             android:layout_height="130dp"
             android:layout_margin="0dp"
             android:layout_weight="1"
-            android:padding="5dp"
             android:background="?android:attr/selectableItemBackground"
-            android:src="@drawable/whiskey"/>
+            android:padding="5dp"
+            android:src="@drawable/whiskey" />
 
         <ImageView
             android:id="@+id/mixed_button"
@@ -125,10 +125,10 @@
             android:layout_height="130dp"
             android:layout_margin="0dp"
             android:layout_weight="1"
-            android:clickable="true"
             android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
             android:padding="5dp"
-            android:src="@drawable/longisland"/>
+            android:src="@drawable/longisland" />
 
     </LinearLayout>
 

@@ -81,5 +81,4 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         mDrinkListInfoFragment.drinkName = s;
         mDrinkListInfoFragment.topNode = mDrinksFragment.topNode;
     }
-
 }
