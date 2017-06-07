@@ -49,8 +49,7 @@
                     android:layout_width="160dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="15dp"
-                    android:background="@color/colorwhite"
-                    android:src="@drawable/whiskeysour" />
+                    android:background="@color/colorwhite" />
 
                 <TextView
                     android:id="@+id/card_drink_desc"

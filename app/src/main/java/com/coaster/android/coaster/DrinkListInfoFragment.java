@@ -79,6 +79,7 @@ public class DrinkListInfoFragment extends Fragment {
 
                 String result = "";
                 StringBuilder sb = new StringBuilder();
+
                 sb.append(drinkCocktail.get(0).getMeasure1() + drinkCocktail.get(0).getIngred1() + "\n");
                 sb.append(drinkCocktail.get(0).getMeasure2() + drinkCocktail.get(0).getIngred2() + "\n");
                 sb.append(drinkCocktail.get(0).getMeasure3() + drinkCocktail.get(0).getIngred3() + "\n");
@@ -91,9 +92,9 @@ public class DrinkListInfoFragment extends Fragment {
                 sb.append(drinkCocktail.get(0).getMeasure10() + drinkCocktail.get(0).getIngred10() + "\n");
                 sb.append(drinkCocktail.get(0).getMeasure11() + drinkCocktail.get(0).getIngred11() + "\n");
                 sb.append(drinkCocktail.get(0).getMeasure12() + drinkCocktail.get(0).getIngred12());
+
                 result = sb.toString().trim();
                 ingrediantsTextView.setText(result);
-
                 prepTextView.setText(drinkCocktail.get(0).getPrep());
                 drinkCocktail.clear();
             }
