@@ -13,5 +13,12 @@
     <string name="instruction">Instruction</string>
     <string name="my_cocktail_recipes">My Cocktail Recipes</string>
     <string name="bloody_mary">Bloody Mary</string>
+    <string name="green">green</string>
+    <string name="blue">blue</string>
+    <string name="pink">pink</string>
+    <string name="grey">grey</string>
+    <string name="original">Default</string>
+    <string name="open">open</string>
+    <string name="close">close</string>>
 
 </resources>

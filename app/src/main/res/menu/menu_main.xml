@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_grey"
+            android:orderInCategory="1"
+            android:title="@string/grey"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_blue"
+            android:orderInCategory="1"
+            android:title="@string/blue"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_pink"
+            android:orderInCategory="1"
+            android:title="@string/pink"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_original"
+            android:orderInCategory="1"
+            android:title="@string/original"
+            app:showAsAction="never" />
+
+    </group>
+</menu>
