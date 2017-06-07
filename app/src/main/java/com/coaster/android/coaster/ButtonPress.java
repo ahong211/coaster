@@ -11,4 +11,5 @@ public interface ButtonPress {
     public void vodkaStringKey();
 
     public void whiskeyStringKey();
+
 }
