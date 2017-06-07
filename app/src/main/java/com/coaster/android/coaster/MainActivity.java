@@ -1,11 +1,19 @@
 package com.coaster.android.coaster;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements ButtonPress, DrinkInfo {
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
     CategoryFragment mCategoryFragment;
     DrinksFragment mDrinksFragment;
     CustomDrinksListFragment mCustomDrinksListFragment;
@@ -28,6 +36,22 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
         transaction.add(R.id.fragment_container, mCategoryFragment);
         transaction.commit();
+
+        // Side view menu
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.fragment_container);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open , R.string.close);
+
+        mDrawerLayout.addDrawerListener((mToggle));
+        mToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
@@ -104,5 +128,55 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
     public void setDrinkNameNode(String s) {
         mDrinkListInfoFragment.drinkName = s;
         mDrinkListInfoFragment.topNode = mDrinksFragment.topNode;
+    }
+
+
+    // Action bar added and side drawer
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (mToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+
+        switch (id) {
+            case R.id.menu_grey:
+                if(item.isChecked()) {
+                    item.setCheckable(false);
+                }
+
+                else item.setChecked(true);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#757575")));
+                return true;
+
+            case R.id.menu_blue:
+                if(item.isChecked()) {
+                    item.setCheckable(false);
+                }
+                else item.setChecked(true);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5aa9e9")));
+                return true;
+
+            case R.id.menu_pink:
+                if(item.isChecked()) {
+                    item.setCheckable(false);
+                }
+                else item.setChecked(true);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#f78ff9")));
+                return true;
+
+            case R.id.menu_original:
+                if(item.isChecked()) {
+                    item.setCheckable(false);
+                }
+                else item.setChecked(true);
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffc042")));
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
