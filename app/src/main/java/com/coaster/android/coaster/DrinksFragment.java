@@ -64,6 +64,26 @@ public class DrinksFragment extends Fragment {
             callQuery(myRef);
         }
 
+        if (Objects.equals(topNode, "tequila")) {
+            mCocktailList.clear();
+            callQuery(myRef);
+        }
+
+        if (Objects.equals(topNode, "rum")) {
+            mCocktailList.clear();
+            callQuery(myRef);
+        }
+
+        if (Objects.equals(topNode, "gin")) {
+            mCocktailList.clear();
+            callQuery(myRef);
+        }
+
+        if (Objects.equals(topNode, "mixed_drink")) {
+            mCocktailList.clear();
+            callQuery(myRef);
+        }
+
         mRecyclerView.setVisibility(View.GONE);
         mShortAnimationDuration = getResources().getInteger(android.R.integer.config_longAnimTime);
         crossFadeRecyclerView();

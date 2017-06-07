@@ -20,6 +20,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
     ImageView tequilaButton;
     ImageView vodkaButton;
     ImageView whiskeyButton;
+    ImageView mixedButton;
 
     Button customDrinksButton;
     FragmentManager manager = getFragmentManager();
@@ -41,6 +42,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         tequilaButton = (ImageView) view.findViewById(R.id.tequila_button);
         vodkaButton = (ImageView) view.findViewById(R.id.vodka_button);
         whiskeyButton = (ImageView) view.findViewById(R.id.whiskey_button);
+        mixedButton = (ImageView) view.findViewById(R.id.mixed_button);
         customDrinksButton = (Button) view.findViewById(R.id.custom_drinks_button);
 
         //storageReference = FirebaseStorage.getInstance().getReference();
@@ -56,6 +58,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         tequilaButton.setOnClickListener(this);
         vodkaButton.setOnClickListener(this);
         whiskeyButton.setOnClickListener(this);
+        mixedButton.setOnClickListener(this);
 
         return view;
     }
@@ -111,6 +114,38 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 ButtonPress whiskeyPress = (ButtonPress) getActivity();
                 whiskeyPress.drinkButtonPress();
                 whiskeyPress.whiskeyStringKey();
+
+                break;
+
+            case R.id.tequila_button:
+
+                ButtonPress tequilaPress = (ButtonPress) getActivity();
+                tequilaPress.drinkButtonPress();
+                tequilaPress.tequilaStringKey();
+
+                break;
+
+            case R.id.rum_button:
+
+                ButtonPress rumPress = (ButtonPress) getActivity();
+                rumPress.drinkButtonPress();
+                rumPress.rumStringKey();
+
+                break;
+
+            case R.id.gin_button:
+
+                ButtonPress ginPress = (ButtonPress) getActivity();
+                ginPress.drinkButtonPress();
+                ginPress.ginStringKey();
+
+                break;
+
+            case R.id.mixed_button:
+
+                ButtonPress mixedDrinkPress = (ButtonPress) getActivity();
+                mixedDrinkPress.drinkButtonPress();
+                mixedDrinkPress.mixedDrinkStringKey();
 
                 break;
 

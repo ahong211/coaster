@@ -69,6 +69,30 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
     }
 
     @Override
+    public void tequilaStringKey() {
+        mDrinksFragment.positionIndex = -1;
+        mDrinksFragment.topNode = "tequila";
+    }
+
+    @Override
+    public void rumStringKey() {
+        mDrinksFragment.positionIndex = -1;
+        mDrinksFragment.topNode = "rum";
+    }
+
+    @Override
+    public void ginStringKey() {
+        mDrinksFragment.positionIndex = -1;
+        mDrinksFragment.topNode = "gin";
+    }
+
+    @Override
+    public void mixedDrinkStringKey() {
+        mDrinksFragment.positionIndex = -1;
+        mDrinksFragment.topNode = "mixed_drink";
+    }
+
+    @Override
     public void goToDrinkListFragment() {
         FragmentTransaction drinkTransaction = manager.beginTransaction();
         drinkTransaction.replace(R.id.fragment_container, mDrinkListInfoFragment);
