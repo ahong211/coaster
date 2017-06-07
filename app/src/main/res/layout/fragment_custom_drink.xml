@@ -62,8 +62,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:maxLines="6"
                 android:hint="Quantity + Ingredient"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:text="" />
         </FrameLayout>
 
@@ -77,8 +78,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:maxLines="6"
                 android:hint="@string/instruction"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:text="" />
         </FrameLayout>
 
