@@ -11,9 +11,18 @@ public class Cocktail {
             measure9, measure10, measure11, measure12;
 
     private String prep;
+    private String url;
 
     public Cocktail() {
 
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getName() {

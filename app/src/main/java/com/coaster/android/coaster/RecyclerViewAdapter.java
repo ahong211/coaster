@@ -4,12 +4,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<MyHolder> {
 
     List<Cocktail> mCocktails;
+    private ImageView imageView;
 
     public RecyclerViewAdapter(List<Cocktail> cocktails) {
         mCocktails = cocktails;
@@ -20,6 +24,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyHolder> {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.category_item, parent, false);
 
+        imageView = (ImageView) view.findViewById(R.id.card_drink_img);
+
         return new MyHolder(view);
     }
 
@@ -27,6 +33,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyHolder> {
     public void onBindViewHolder(MyHolder holder, final int position) {
         holder.cardDrinkTitle.setText(mCocktails.get(position).getName());
         holder.cardDrinkDesc.setText(mCocktails.get(position).getDescription());
+
+        Glide.with(imageView.getContext())
+                .load(mCocktails.get(position).getUrl())
+                .into(imageView);
 
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override

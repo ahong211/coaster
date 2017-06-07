@@ -106,6 +106,7 @@ public class DrinksFragment extends Fragment {
 
                     mCocktailList.add(value);
                 }
+                
                 mLayoutManager = new LinearLayoutManager(getContext());
 
                 mRecyclerView.setLayoutManager(mLayoutManager);
