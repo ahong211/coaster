@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 
@@ -60,11 +62,23 @@ public class LoginActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == Activity.RESULT_OK && requestCode == 123) {
-            //IdpResponse response = IdpResponse.fromResultIntent(data);
+            createUserInDatabase();
 
-            //startActivity();
-//            finish();
             return;
         }
+    }
+
+    private void createUserInDatabase() {
+        User user = new User();
+        if (auth.getCurrentUser() != null) {
+            user.setId(auth.getCurrentUser().getUid());
+            user.setEmail(auth.getCurrentUser().getEmail());
+        }
+
+        String userNode = "users";
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(userNode + "/"
+                + auth.getCurrentUser().getUid());
+        myRef.setValue(user);
     }
 }
