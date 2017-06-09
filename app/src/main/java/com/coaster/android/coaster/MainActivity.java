@@ -11,15 +11,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.firebase.ui.auth.AuthUI;
+
 public class MainActivity extends AppCompatActivity implements ButtonPress, DrinkInfo {
-    private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mToggle;
     CategoryFragment mCategoryFragment;
     DrinksFragment mDrinksFragment;
     CustomDrinksListFragment mCustomDrinksListFragment;
     DrinkListInfoFragment mDrinkListInfoFragment;
     CustomDrinkFragment mCustomDrinkFragment;
     FragmentManager manager = getSupportFragmentManager();
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
 
     // TODO: 5/29/2017 Link custom drink fragment to custom drink list fragment
 
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
         // Side view menu
         mDrawerLayout = (DrawerLayout) findViewById(R.id.fragment_container);
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open , R.string.close);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
 
         mDrawerLayout.addDrawerListener((mToggle));
         mToggle.syncState();
@@ -137,43 +139,42 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (mToggle.onOptionsItemSelected(item)){
+        if (mToggle.onOptionsItemSelected(item)) {
             return true;
         }
 
         switch (id) {
             case R.id.menu_grey:
-                if(item.isChecked()) {
+                if (item.isChecked()) {
                     item.setCheckable(false);
-                }
-
-                else item.setChecked(true);
+                } else item.setChecked(true);
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#757575")));
                 return true;
 
             case R.id.menu_blue:
-                if(item.isChecked()) {
+                if (item.isChecked()) {
                     item.setCheckable(false);
-                }
-                else item.setChecked(true);
+                } else item.setChecked(true);
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#5aa9e9")));
                 return true;
 
             case R.id.menu_pink:
-                if(item.isChecked()) {
+                if (item.isChecked()) {
                     item.setCheckable(false);
-                }
-                else item.setChecked(true);
+                } else item.setChecked(true);
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#f78ff9")));
                 return true;
 
             case R.id.menu_original:
-                if(item.isChecked()) {
+                if (item.isChecked()) {
                     item.setCheckable(false);
-                }
-                else item.setChecked(true);
+                } else item.setChecked(true);
                 getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffc042")));
                 return true;
+
+            case R.id.menu_signout:
+                AuthUI.getInstance().signOut(this);
+                finish();
 
             default:
                 return super.onOptionsItemSelected(item);

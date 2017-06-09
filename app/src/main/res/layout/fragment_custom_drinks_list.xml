@@ -6,9 +6,9 @@
     tools:context="com.coaster.android.coaster.CustomDrinksListFragment">
 
     <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:id="@+id/f_recycler_view"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content">-->
+    <!--android:id="@+id/f_recycler_view"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
 
     <!--</android.support.v7.widget.RecyclerView>-->
 
@@ -16,14 +16,14 @@
         android:id="@+id/add_new_drink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="21dp"
         android:clickable="true"
         app:backgroundTint="@android:color/background_dark"
         app:fabSize="mini"
-        app:srcCompat="@android:drawable/ic_input_add"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="21dp" />
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </RelativeLayout>
 

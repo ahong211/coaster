@@ -36,7 +36,7 @@ public class DrinksFragment extends Fragment {
     private ProgressDialog progressDialog;
 
     public DrinksFragment() {
-        // Required empty public constructor
+        // Required empty constructor
     }
 
     @Override

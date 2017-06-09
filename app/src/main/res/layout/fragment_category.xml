@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Coaster V.1"
+        android:text="Coaster V1.2"
         android:textColor="#000000"
         android:textSize="50sp" />
 
@@ -186,7 +186,7 @@
         <!--android:background="@color/colorGrey"-->
         <!--android:padding="5dp"-->
         <!--android:text="My Cocktail Recipes "-->
-        <!--android:textColor="@color/colorwhite"-->
+        <!--android:textColor="@color/colorWhite"-->
         <!--android:textSize="20sp" />-->
 
         <Button
@@ -194,9 +194,9 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="60dp"
             android:layout_marginRight="60dp"
-            android:layout_marginBottom="20dp"
             android:layout_weight="1"
             android:background="@drawable/buttonshape"
             android:paddingTop="2dp"
@@ -205,7 +205,7 @@
             android:shadowDy="1"
             android:shadowRadius="0"
             android:text="My Cocktail Recipes"
-            android:textColor="@color/colorwhite" />
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
 
 </LinearLayout>

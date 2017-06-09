@@ -14,6 +14,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyHolder> {
 
     List<Cocktail> mCocktails;
     private ImageView imageView;
+    private ViewGroup viewGroup;
 
     public RecyclerViewAdapter(List<Cocktail> cocktails) {
         mCocktails = cocktails;
@@ -25,6 +26,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyHolder> {
                 .inflate(R.layout.category_item, parent, false);
 
         imageView = (ImageView) view.findViewById(R.id.card_drink_img);
+        this.viewGroup = parent;
 
         return new MyHolder(view);
     }
@@ -34,7 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.cardDrinkTitle.setText(mCocktails.get(position).getName());
         holder.cardDrinkDesc.setText(mCocktails.get(position).getDescription());
 
-        Glide.with(imageView.getContext())
+        Glide.with(viewGroup.getContext())
                 .load(mCocktails.get(position).getUrl())
                 .into(imageView);
 

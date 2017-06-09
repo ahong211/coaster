@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import java.util.ArrayList;
 
 public class CustomDrinksListFragment extends Fragment implements View.OnClickListener {
@@ -17,7 +18,7 @@ public class CustomDrinksListFragment extends Fragment implements View.OnClickLi
     ArrayList<String> customDrinksDataList;
 
     public CustomDrinksListFragment() {
-        // Required empty public constructor
+        // Required empty constructor
     }
 
     @Override
@@ -40,5 +41,4 @@ public class CustomDrinksListFragment extends Fragment implements View.OnClickLi
         ButtonPress addCustomDrinkPress = (ButtonPress) getActivity();
         addCustomDrinkPress.addCustomDrinkButtonPress();
     }
-
 }

@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_account"
+        android:title="@string/account" />
 
-    <item android:id="@+id/nav_account"
-        android:title="My Account"/>
+    <item
+        android:id="@+id/nav_settings"
+        android:title="@string/settings" />
 
-
-    <item android:id="@+id/nav_settings"
-        android:title="Settings"/>
-
-
-    <item android:id="@+id/nav_logout"
-        android:title="Logout"/>
+    <item
+        android:id="@+id/nav_logout"
+        android:title="@string/signout" />
 
 </menu>

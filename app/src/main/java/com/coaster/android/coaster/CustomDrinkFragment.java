@@ -40,7 +40,7 @@ public class CustomDrinkFragment extends Fragment implements View.OnClickListene
     private String albumName = "drink_files";
 
     public CustomDrinkFragment() {
-        // Required empty public constructor
+        // Required empty constructor
     }
 
     public ArrayList<String> getCustomDrinksDataList() {

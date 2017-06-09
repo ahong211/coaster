@@ -28,9 +28,7 @@ public class CustomDrinksAdapter extends RecyclerView.Adapter<CustomDrinksAdapte
 
     @Override
     public void onBindViewHolder(CustomDrinksAdapter.ViewHolder holder, int position) {
-
         holder.bind(data.get(position));
-
     }
 
     @Override
@@ -44,9 +42,7 @@ public class CustomDrinksAdapter extends RecyclerView.Adapter<CustomDrinksAdapte
 
         public ViewHolder(View itemView) {
             super(itemView);
-
             textView = (TextView) itemView.findViewById(android.R.id.text1);
-
         }
 
         public void bind(String s) {

@@ -27,7 +27,7 @@
                 android:padding="4dp"
                 android:text="@string/bloody_mary"
                 android:textAlignment="center"
-                android:textColor="@color/colorwhite"
+                android:textColor="@color/colorWhite"
                 android:textSize="25sp"
                 android:textStyle="italic|bold" />
 
@@ -36,12 +36,11 @@
                 android:layout_height="3dp"
                 android:layout_marginTop="0dp"
                 android:background="@color/colorPrimary" />
-            <!--android:background="#d73e3e" -->
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorwhite"
+                android:background="@color/colorWhite"
                 android:paddingBottom="10dp">
 
                 <ImageView
@@ -49,7 +48,7 @@
                     android:layout_width="160dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="15dp"
-                    android:background="@color/colorwhite" />
+                    android:background="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/card_drink_desc"
@@ -57,7 +56,7 @@
                     android:layout_height="150dp"
                     android:layout_marginTop="15dp"
                     android:height="180dp"
-                    android:background="@color/colorwhite"
+                    android:background="@color/colorWhite"
                     android:paddingLeft="10dp"
                     android:text="These tasty bloody marys will keep you coming back for more..."
                     android:textSize="20sp" />

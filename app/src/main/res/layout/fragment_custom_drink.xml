@@ -62,10 +62,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:maxLines="6"
                 android:hint="Quantity + Ingredient"
                 android:inputType="textMultiLine"
+                android:maxLines="6"
                 android:text="" />
+
         </FrameLayout>
 
         <FrameLayout
@@ -78,10 +79,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:maxLines="6"
                 android:hint="@string/instruction"
                 android:inputType="textMultiLine"
+                android:maxLines="6"
                 android:text="" />
+
         </FrameLayout>
 
     </LinearLayout>

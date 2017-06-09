@@ -14,7 +14,7 @@ public class Cocktail {
     private String url;
 
     public Cocktail() {
-
+        // Required empty constructor
     }
 
     public String getUrl() {

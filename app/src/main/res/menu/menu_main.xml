@@ -26,4 +26,11 @@
             app:showAsAction="never" />
 
     </group>
+
+    <item
+        android:id="@+id/menu_signout"
+        android:orderInCategory="1"
+        android:title="@string/signout"
+        app:showAsAction="never" />
+
 </menu>

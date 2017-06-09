@@ -33,7 +33,7 @@ public class DrinkListInfoFragment extends Fragment {
     private View drinkInfoLayout;
 
     public DrinkListInfoFragment() {
-        // Required empty public constructor
+        // Required empty constructor
     }
 
     @Override
@@ -71,7 +71,6 @@ public class DrinkListInfoFragment extends Fragment {
                     Log.d(TAG, "onDataChange: " + value.getName());
 
                     drinkCocktail.add(value);
-
                 }
 
                 drinkNameTextView.setText(drinkCocktail.get(0).getName());

@@ -10,6 +10,7 @@ public class CustomDrinkRecipe {
     private File drinkFileName;
 
     public CustomDrinkRecipe() {
+        // Required empty constructor
     }
 
     public CustomDrinkRecipe(String drinkName, String ingredient, String instruction) {

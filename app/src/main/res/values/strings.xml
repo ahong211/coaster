@@ -13,12 +13,15 @@
     <string name="instruction">Instruction</string>
     <string name="my_cocktail_recipes">My Cocktail Recipes</string>
     <string name="bloody_mary">Bloody Mary</string>
-    <string name="green">green</string>
-    <string name="blue">blue</string>
-    <string name="pink">pink</string>
-    <string name="grey">grey</string>
-    <string name="original">Default</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="pink">Pink</string>
+    <string name="grey">Grey</string>
+    <string name="original">Original</string>
     <string name="open">open</string>
-    <string name="close">close</string>>
+    <string name="close">close</string>
+    <string name="signout">Sign Out</string>
+    <string name="account">Account</string>
+    <string name="settings">Settings</string>
 
 </resources>
