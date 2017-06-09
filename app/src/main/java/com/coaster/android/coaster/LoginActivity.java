@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final String TAG = LoginActivity.class.getSimpleName() + "_TAG";
     private FirebaseAuth auth;
 
     @Override
@@ -70,15 +71,17 @@ public class LoginActivity extends AppCompatActivity {
 
     private void createUserInDatabase() {
         User user = new User();
+
         if (auth.getCurrentUser() != null) {
             user.setId(auth.getCurrentUser().getUid());
             user.setEmail(auth.getCurrentUser().getEmail());
+            user.setName(auth.getCurrentUser().getDisplayName());
         }
 
         String userNode = "users";
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference(userNode + "/"
+        DatabaseReference databaseReference = database.getReference(userNode + "/"
                 + auth.getCurrentUser().getUid());
-        myRef.setValue(user);
+        databaseReference.setValue(user);
     }
 }

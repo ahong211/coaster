@@ -180,4 +180,11 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AuthUI.getInstance().signOut(this);
+        finish();
+    }
 }
