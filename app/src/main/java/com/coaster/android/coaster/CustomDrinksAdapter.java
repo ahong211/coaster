@@ -9,11 +9,21 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class CustomDrinksAdapter extends RecyclerView.Adapter<CustomDrinksAdapter.ViewHolder> {
 
-    List<String> data;
+    @BindView(R.id.custom_name_text_view)
+    TextView nameView;
+    @BindView(R.id.custom_ingredients_text_view)
+    TextView ingredientsView;
+    @BindView(R.id.custom_instruction_text_view)
+    TextView instructionsView;
 
-    public CustomDrinksAdapter(ArrayList<String> customDrinksData) {
+    List<CustomDrinkRecipe> data;
+
+    public CustomDrinksAdapter(List<CustomDrinkRecipe> customDrinksData) {
         this.data = customDrinksData;
     }
 
@@ -21,8 +31,8 @@ public class CustomDrinksAdapter extends RecyclerView.Adapter<CustomDrinksAdapte
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
-
+        View view = layoutInflater.inflate(R.layout.custom_drink_item, parent, false);
+        ButterKnife.bind(this, view);
         return new ViewHolder(view);
     }
 
@@ -36,17 +46,18 @@ public class CustomDrinksAdapter extends RecyclerView.Adapter<CustomDrinksAdapte
         return data != null ? data.size() : 0;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        TextView textView;
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         public ViewHolder(View itemView) {
             super(itemView);
-            textView = (TextView) itemView.findViewById(android.R.id.text1);
         }
 
-        public void bind(String s) {
-            textView.setText(s);
+        public void bind(CustomDrinkRecipe nextDrink) {
+            if (nextDrink != null) {
+                nameView.setText(nextDrink.getDrinkName());
+                ingredientsView.setText(nextDrink.getIngredient());
+                instructionsView.setText(nextDrink.getInstruction());
+            }
         }
     }
 }

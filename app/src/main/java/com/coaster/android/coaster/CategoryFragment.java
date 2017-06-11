@@ -1,5 +1,6 @@
 package com.coaster.android.coaster;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -151,8 +152,8 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
 
             case R.id.custom_drinks_button:
 
-                ButtonPress customDrinksListPress = (ButtonPress) getActivity();
-                customDrinksListPress.customDrinksListButtonPress();
+                Intent loadCustomList = new Intent(getContext(), CustomDrinkListActivity.class);
+                startActivity(loadCustomList);
 
                 break;
         }

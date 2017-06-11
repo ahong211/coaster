@@ -4,27 +4,33 @@ import java.io.File;
 
 public class CustomDrinkRecipe {
 
+    public String getDrinkId() {
+        return drinkId;
+    }
+
+    public void setDrinkId(String drinkId) {
+        this.drinkId = drinkId;
+    }
+
+    public CustomDrinkRecipe(String drinkId) {
+
+        this.drinkId = drinkId;
+    }
+
+    private String drinkId;
     private String drinkName;
     private String ingredient;
     private String instruction;
-    private File drinkFileName;
 
     public CustomDrinkRecipe() {
         // Required empty constructor
     }
 
     public CustomDrinkRecipe(String drinkName, String ingredient, String instruction) {
+
         this.drinkName = drinkName;
         this.ingredient = ingredient;
         this.instruction = instruction;
-    }
-
-    public File getDrinkFileName() {
-        return drinkFileName;
-    }
-
-    public void setDrinkFileName(File drinkFileName) {
-        this.drinkFileName = drinkFileName;
     }
 
     public String getDrinkName() {
