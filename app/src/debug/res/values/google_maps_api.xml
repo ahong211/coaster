@@ -1,0 +1,26 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=DB:7D:E7:FC:C2:76:62:BE:51:23:4D:67:03:99:35:10:EF:A3:6E:68%3Bcom.coaster.android.coaster
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    DB:7D:E7:FC:C2:76:62:BE:51:23:4D:67:03:99:35:10:EF:A3:6E:68
+
+    SHA-1 certificate fingerprint:
+    DB:7D:E7:FC:C2:76:62:BE:51:23:4D:67:03:99:35:10:EF:A3:6E:68
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyA6jLEj5N9VjraBX09WN3KJc3xNGQgWBm4
+    </string>
+</resources>

@@ -57,9 +57,10 @@
                     android:layout_marginTop="15dp"
                     android:height="180dp"
                     android:background="@color/colorWhite"
+                    android:textColor="@color/colorGrey"
                     android:paddingLeft="10dp"
                     android:text="These tasty bloody marys will keep you coming back for more..."
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
