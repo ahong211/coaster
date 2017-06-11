@@ -1,8 +1,7 @@
 package com.coaster.android.coaster;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,12 +14,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
-
+import com.google.android.gms.appinvite.AppInviteInvitation;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity implements ButtonPress, DrinkInfo {
+    private static final int INVITE_REQUEST_CODE = 101;
     CategoryFragment mCategoryFragment;
     DrinksFragment mDrinksFragment;
     DrinkListInfoFragment mDrinkListInfoFragment;
@@ -30,15 +32,15 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 //    private DrawerLayout mDrawerLayout;
 //    private ActionBarDrawerToggle mToggle;
 
-    //Kevins Nav Bar Section
-
+    Toolbar toolbar;
+    android.support.v7.app.ActionBarDrawerToggle mDrawerToggle;
     private String[] mNavigationDrawerItemTitles;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
-    Toolbar toolbar;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
-    android.support.v7.app.ActionBarDrawerToggle mDrawerToggle;
+
+    private FirebaseAuth auth;
 
     // TODO: 5/29/2017 Link custom drink fragment to custom drink list fragment
 
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        auth = FirebaseAuth.getInstance();
 
         mCategoryFragment = new CategoryFragment();
         mDrinksFragment = new DrinksFragment();
@@ -56,11 +60,8 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         transaction.add(R.id.fragment_container, mCategoryFragment);
         transaction.commit();
 
-
-        // Kevin's new Side Bar
-
         mTitle = mDrawerTitle = getTitle();
-        mNavigationDrawerItemTitles= getResources().getStringArray(R.array.navigation_drawer_items_array);
+        mNavigationDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         drawerItem[5] = new DataModel("Bar Code Scanner");
         drawerItem[6] = new DataModel("Sign Out");
 
+        //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
 
@@ -84,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         setupDrawerToggle();
-
 
 //        // Side view menu
 //        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -97,16 +98,6 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
     }
 
-
-
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-
     @Override
     public void drinkButtonPress() {
         FragmentTransaction drinkTransaction = manager.beginTransaction();
@@ -117,8 +108,8 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
     @Override
     public void customDrinksListButtonPress() {
-        Intent loadCustomList = new Intent(this, CustomDrinkListActivity.class);
-        startActivity(loadCustomList);
+        Intent customListIntent = new Intent(this, CustomDrinkListActivity.class);
+        startActivity(customListIntent);
 
 //        mCustomDrinksListFragment = new CustomDrinksListFragment();
 //        FragmentTransaction customDrinksListTransaction = manager.beginTransaction();
@@ -181,8 +172,8 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
     }
 
     @Override
-    public void setDrinkNameNode(String s) {
-        mDrinkListInfoFragment.drinkName = s;
+    public void setDrinkNameNode(String nameNode) {
+        mDrinkListInfoFragment.drinkName = nameNode;
         mDrinkListInfoFragment.topNode = mDrinksFragment.topNode;
     }
 
@@ -235,46 +226,46 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 //        }
 //    }
 
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
-        }
-
-    }
-
     private void selectItem(int position) {
 
         Fragment fragment = null;
 
         switch (position) {
-//            case 0:
-//                Intent i = new Intent(this, MapsActivity.class);
-//                startActivity(i);
-//                break;
-//            case 1:
-//                fragment = new FixturesFragment();
-//                break;
-//            case 2:
-//                fragment = new TableFragment();
-//                break;
-            case 3:
-                Intent i = new Intent(this, MapsActivity.class);
-                startActivity(i);
+            case 1:
+                //noinspection ConstantConditions
+
+                //FIXME: change manifest file to launch LoginActivity - before getting currentUser.
+                //String name = auth.getCurrentUser().getDisplayName();
+                //Toast.makeText(this, "Hi " + name, Toast.LENGTH_SHORT).show();
+                
+                Toast.makeText(this, "Hi", Toast.LENGTH_SHORT).show();
                 break;
-//            case 4:
-//                fragment = new TableFragment();
-//                break;
-//            case 5:
-//                fragment = new TableFragment();
-//                break;
-//            case 6:
-//                fragment = new TableFragment();
-//                break;
+
+            case 2:
+                //settingsFragment();
+                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show();
+                break;
+
+            case 3:
+                Intent mapsIntent = new Intent(this, MapsActivity.class);
+                startActivity(mapsIntent);
+                break;
+
+            case 4:
+                sendInvite();
+                break;
+
+            case 5:
+                //barCodeScannerFragment();
+                Toast.makeText(this, "Bar Code Scanner Clicked", Toast.LENGTH_SHORT).show();
+                break;
+
+            case 6:
+                signOutUser();
+                break;
 
             default:
-                break;
+                throw new RuntimeException("Navigation Drawer position invalid: " + position);
         }
 
         if (fragment != null) {
@@ -291,21 +282,39 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         }
     }
 
-    // ****************************************** NAV DRAWER ***************************************
+    private void sendInvite() {
+        Intent intent = new AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
+                .setMessage(getString(R.string.invitation_message))
+                .setDeepLink(Uri.parse(getString(R.string.invitation_deep_link)))
+//                .setCustomImage(Uri.parse(getString(R.string.invitation_custom_image)))
+                .setCallToActionText(getString(R.string.invitation_call_to_action))
+                .build();
+        startActivityForResult(intent, INVITE_REQUEST_CODE);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+
+            /*
+            * TODO: simplify if statement
+            * return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+            */
+
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    // ****************************************** NAV DRAWER ***************************************
+
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
+
+        //noinspection ConstantConditions
         getSupportActionBar().setTitle(mTitle);
     }
 
@@ -315,24 +324,40 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         mDrawerToggle.syncState();
     }
 
-    void setupToolbar(){
+    void setupToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //noinspection ConstantConditions
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
-    void setupDrawerToggle(){
-        mDrawerToggle = new android.support.v7.app.ActionBarDrawerToggle(this,mDrawerLayout,toolbar,R.string.app_name, R.string.app_name);
+    void setupDrawerToggle() {
+        mDrawerToggle = new android.support.v7.app.ActionBarDrawerToggle(this, mDrawerLayout,
+                toolbar, R.string.app_name, R.string.app_name);
+
         //This is necessary to change the icon of the Drawer Toggle upon state change.
         mDrawerToggle.syncState();
     }
 
-    // *********************************************************************************************
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        signOutUser();
+    }
+
+    private void signOutUser() {
         AuthUI.getInstance().signOut(this);
         finish();
+    }
+
+    // *********************************************************************************************
+
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            selectItem(position);
+        }
     }
 }

@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
 
         if (auth.getCurrentUser() != null) {
-            Toast.makeText(this, "Signed In", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
         } else {
             loginOptions();
         }

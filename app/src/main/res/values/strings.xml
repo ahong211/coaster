@@ -36,4 +36,11 @@
     <string name="account">Account</string>
     <string name="settings">Settings</string>
 
+    <string name="invite_a_friend">Invite a Friend</string>
+    <string name="invitation_message">Checkout Coaster</string>
+    <string name="invitation_title">Send Invitation</string>
+    <string name="invitation_deep_link">https://github.com/ahong211/coaster</string>
+    <!--<string name="invitation_custom_image">https://github.com/ahong211/coaster/blob/master/app/src/main/res/mipmap-hdpi/coaster_icon_round.png</string>-->
+    <string name="invitation_call_to_action">Try this app!</string>
+
 </resources>
