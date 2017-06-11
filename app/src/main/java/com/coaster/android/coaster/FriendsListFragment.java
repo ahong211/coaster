@@ -68,8 +68,7 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
     }
 
     private void callQuery(Query friendEmail) {
-
-
+        
         friendEmail.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -85,9 +84,11 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
                         databaseReference.setValue(value);
                         Toast.makeText(getContext(), "Friend Added!", Toast.LENGTH_SHORT).show();
                     }
-                    if (value == null){
-                        Toast.makeText(getContext(), "Invalid Email", Toast.LENGTH_SHORT).show();
-                    }
+
+                }
+
+                if (value == null){
+                    Toast.makeText(getContext(), "Invalid Email", Toast.LENGTH_SHORT).show();
                 }
             }
 
