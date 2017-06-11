@@ -1,5 +1,6 @@
 package com.coaster.android.coaster;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,12 +17,9 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
     private ActionBarDrawerToggle mToggle;
     CategoryFragment mCategoryFragment;
     DrinksFragment mDrinksFragment;
-    CustomDrinksListFragment mCustomDrinksListFragment;
     DrinkListInfoFragment mDrinkListInfoFragment;
-    CustomDrinkFragment mCustomDrinkFragment;
+    //CustomDrinkFragment mCustomDrinkFragment;
     FragmentManager manager = getSupportFragmentManager();
-
-    // TODO: 5/29/2017 Link custom drink fragment to custom drink list fragment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,20 +62,23 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
     @Override
     public void customDrinksListButtonPress() {
-        mCustomDrinksListFragment = new CustomDrinksListFragment();
-        FragmentTransaction customDrinksListTransaction = manager.beginTransaction();
-        customDrinksListTransaction.replace(R.id.fragment_container, mCustomDrinksListFragment);
-        customDrinksListTransaction.addToBackStack(null);
-        customDrinksListTransaction.commit();
+        Intent loadCustomList = new Intent(this, CustomDrinkListActivity.class);
+        startActivity(loadCustomList);
+
+//        mCustomDrinksListFragment = new CustomDrinksListFragment();
+//        FragmentTransaction customDrinksListTransaction = manager.beginTransaction();
+//        customDrinksListTransaction.replace(R.id.fragment_container, mCustomDrinksListFragment);
+//        customDrinksListTransaction.addToBackStack(null);
+//        customDrinksListTransaction.commit();
     }
 
     @Override
     public void addCustomDrinkButtonPress() {
-        mCustomDrinkFragment = new CustomDrinkFragment();
-        FragmentTransaction customDrinkTransaction = manager.beginTransaction();
-        customDrinkTransaction.replace(R.id.fragment_container, mCustomDrinkFragment);
-        customDrinkTransaction.addToBackStack(null);
-        customDrinkTransaction.commit();
+//        mCustomDrinkFragment = new CustomDrinkFragment();
+//        FragmentTransaction customDrinkTransaction = manager.beginTransaction();
+//        customDrinkTransaction.replace(R.id.fragment_container, mCustomDrinkFragment);
+//        customDrinkTransaction.addToBackStack(null);
+//        customDrinkTransaction.commit();
     }
 
     @Override
