@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                                         AuthUI.EMAIL_PROVIDER).build(),
                                 new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build()))
                         .setLogo(R.drawable.logo_black)
-                        .setTheme(R.style.AppTheme)
+//                        .setTheme(R.style.AppTheme)
                         .build(), 123);
     }
 

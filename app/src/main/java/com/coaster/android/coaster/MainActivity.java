@@ -67,14 +67,15 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
         setupToolbar();
 
-        DataModel[] drawerItem = new DataModel[7];
+        DataModel[] drawerItem = new DataModel[8];
         drawerItem[0] = new DataModel(R.drawable.coaster_nav_image);
         drawerItem[1] = new DataModel("Account");
         drawerItem[2] = new DataModel("Settings");
         drawerItem[3] = new DataModel("Maps");
-        drawerItem[4] = new DataModel("Invite a friend");
-        drawerItem[5] = new DataModel("Bar Code Scanner");
-        drawerItem[6] = new DataModel("Sign Out");
+        drawerItem[4] = new DataModel("Friends List");
+        drawerItem[5] = new DataModel("Invite a friend");
+        drawerItem[6] = new DataModel("Bar Code Scanner");
+        drawerItem[7] = new DataModel("Sign Out");
 
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -252,15 +253,19 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
                 break;
 
             case 4:
-                sendInvite();
+                fragment = new FriendsListFragment();
                 break;
 
             case 5:
+                sendInvite();
+                break;
+
+            case 6:
                 //barCodeScannerFragment();
                 Toast.makeText(this, "Bar Code Scanner Clicked", Toast.LENGTH_SHORT).show();
                 break;
 
-            case 6:
+            case 7:
                 signOutUser();
                 break;
 
@@ -270,7 +275,7 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
 
             mDrawerList.setItemChecked(position, true);
             mDrawerList.setSelection(position);

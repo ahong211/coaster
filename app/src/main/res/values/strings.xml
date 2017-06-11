@@ -9,6 +9,11 @@
         <item>Connect</item>
         <item>Fixtures</item>
         <item>Table</item>
+        <item>FriendsList</item>
+        <item>Table</item>
+        <item>Table</item>
+        <item>Table</item>
+        <item>Table</item>
     </string-array>
     <string name="title_activity_maps">Map</string>
 
@@ -42,5 +47,8 @@
     <string name="invitation_deep_link">https://github.com/ahong211/coaster</string>
     <!--<string name="invitation_custom_image">https://github.com/ahong211/coaster/blob/master/app/src/main/res/mipmap-hdpi/coaster_icon_round.png</string>-->
     <string name="invitation_call_to_action">Try this app!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
