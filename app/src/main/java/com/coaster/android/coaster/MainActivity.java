@@ -231,13 +231,18 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         Fragment fragment = null;
 
         switch (position) {
+
+            case 0:
+                // Navigation Drawer icon clicked. Do nothing.
+                break;
+
             case 1:
                 //noinspection ConstantConditions
 
                 //FIXME: change manifest file to launch LoginActivity - before getting currentUser.
                 //String name = auth.getCurrentUser().getDisplayName();
                 //Toast.makeText(this, "Hi " + name, Toast.LENGTH_SHORT).show();
-                
+
                 Toast.makeText(this, "Hi", Toast.LENGTH_SHORT).show();
                 break;
 
