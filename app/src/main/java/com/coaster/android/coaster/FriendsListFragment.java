@@ -30,6 +30,7 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
     DatabaseReference searchDatabaseReference;
     User value;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
+    String databaseEmail = "";
 
     public FriendsListFragment() {
         // Required empty public constructor
@@ -56,40 +57,41 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
         switch (v.getId()) {
             case R.id.addFriendsButton:
 
-
-
-
                 searchDatabaseReference = database.getReference("users");
                 Query searchFriends = searchDatabaseReference.orderByChild("email").equalTo(friendsListEmail.getText().toString());
 
                 callQuery(searchFriends);
+
                 break;
         }
     }
 
     private void callQuery(Query friendEmail) {
-        
+
+        final String friendsNode = "friends";
+        final String usersNode = "users";
+
+
         friendEmail.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-
                 for (DataSnapshot dataSnap : dataSnapshot.getChildren()) {
                     value = dataSnap.getValue(User.class);
                     Log.d(TAG, "onDataChange: " + value.getId());
+                    databaseEmail = (String) dataSnap.child("email").getValue();
 
                     if (value != null) {
-                        databaseReference = database.getReference("users" + "/"
-                                + auth.getCurrentUser().getUid() + "/" + "friends" + "/" + value.getId());
+                        databaseReference = database.getReference(usersNode + "/"
+                                + auth.getCurrentUser().getUid() + "/" + friendsNode + "/" + value.getId());
                         databaseReference.setValue(value);
-                        Toast.makeText(getContext(), "Friend Added!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), R.string.friend_added, Toast.LENGTH_SHORT).show();
                     }
-
+                }
+                if (!databaseEmail.equals(friendsListEmail.getText().toString())) {
+                    Toast.makeText(getContext(), R.string.invalid_email, Toast.LENGTH_SHORT).show();
                 }
 
-                if (value == null){
-                    Toast.makeText(getContext(), "Invalid Email", Toast.LENGTH_SHORT).show();
-                }
             }
 
             @Override
