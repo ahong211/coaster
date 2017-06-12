@@ -59,11 +59,9 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
         friendsListEmail = (EditText) view.findViewById(R.id.friendslist_email);
         addFriendsButton = (Button) view.findViewById(R.id.addFriendsButton);
         addFriendsButton.setOnClickListener(this);
-
         progressDialog = new ProgressDialog(getContext());
 
         auth = FirebaseAuth.getInstance();
-
         databaseReference = FirebaseDatabase.getInstance().getReference(usersNode + "/" + auth.getCurrentUser().getUid()
                 + "/" + friendsNode);
         displayFriendsList(databaseReference);

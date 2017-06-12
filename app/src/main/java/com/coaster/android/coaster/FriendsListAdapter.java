@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Albert on 6/12/17.
  */
 
-public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.FriendsHolder>{
+public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.FriendsHolder> {
     List<User> friendsList;
 
 
@@ -22,7 +22,7 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
 
     }
 
-    public class FriendsHolder extends RecyclerView.ViewHolder{
+    public class FriendsHolder extends RecyclerView.ViewHolder {
 
         TextView friendsTextView;
 
