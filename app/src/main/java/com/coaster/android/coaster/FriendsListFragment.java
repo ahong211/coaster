@@ -1,8 +1,11 @@
 package com.coaster.android.coaster;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 
 public class FriendsListFragment extends Fragment implements View.OnClickListener {
 
@@ -31,6 +36,13 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
     User value;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     String databaseEmail = "";
+    ArrayList<User> friendsList = new ArrayList<>();
+    RecyclerView friendsRecyclerView;
+    LinearLayoutManager layoutManager;
+    private ProgressDialog progressDialog;
+
+    String friendsNode = "friends";
+    String usersNode = "users";
 
     public FriendsListFragment() {
         // Required empty public constructor
@@ -43,11 +55,18 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_friends_list, container, false);
 
+        friendsRecyclerView = (RecyclerView) view.findViewById(R.id.friends_list_recyclerView);
         friendsListEmail = (EditText) view.findViewById(R.id.friendslist_email);
         addFriendsButton = (Button) view.findViewById(R.id.addFriendsButton);
         addFriendsButton.setOnClickListener(this);
 
+        progressDialog = new ProgressDialog(getContext());
+
         auth = FirebaseAuth.getInstance();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference(usersNode + "/" + auth.getCurrentUser().getUid()
+                + "/" + friendsNode);
+        displayFriendsList(databaseReference);
 
         return view;
     }
@@ -57,7 +76,8 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
         switch (v.getId()) {
             case R.id.addFriendsButton:
 
-                searchDatabaseReference = database.getReference("users");
+                friendsList.clear();
+                searchDatabaseReference = database.getReference(usersNode);
                 Query searchFriends = searchDatabaseReference.orderByChild("email").equalTo(friendsListEmail.getText().toString());
 
                 callQuery(searchFriends);
@@ -66,11 +86,40 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
         }
     }
 
+
+    private void displayFriendsList(DatabaseReference friends) {
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setMessage("Grabbing drinking buddies...");
+        progressDialog.show();
+
+        friends.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot dataSnap : dataSnapshot.getChildren()) {
+                    User value = dataSnap.getValue(User.class);
+                    Log.d(TAG, "onDataChange: " + value.getName());
+
+                    friendsList.add(value);
+                }
+
+                layoutManager = new LinearLayoutManager(getContext());
+
+                friendsRecyclerView.setLayoutManager(layoutManager);
+                FriendsListAdapter friendsAdapter = new FriendsListAdapter(friendsList);
+                friendsRecyclerView.setAdapter(friendsAdapter);
+
+                progressDialog.dismiss();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     private void callQuery(Query friendEmail) {
-
-        final String friendsNode = "friends";
-        final String usersNode = "users";
-
 
         friendEmail.addValueEventListener(new ValueEventListener() {
             @Override

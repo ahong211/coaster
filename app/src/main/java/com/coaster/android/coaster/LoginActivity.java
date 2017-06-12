@@ -109,7 +109,6 @@ public class LoginActivity extends AppCompatActivity {
                             + auth.getCurrentUser().getUid());
                     databaseReference.setValue(user);
                 }
-
             }
 
             @Override
