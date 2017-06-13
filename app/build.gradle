@@ -12,6 +12,13 @@ android {
         versionName "1.2.2"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // To fix conflicts between Dagger dependencies (3.0.1) and Espresso (2.0.1),
+        // No matter which version number the dependencies state...
+        // Tell Gradle which version will be compiled, both versions need to be forced to be similar.
+        configurations.all {
+            resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
+        }
     }
     buildTypes {
         release {
@@ -50,6 +57,18 @@ dependencies {
     compile 'com.google.android.gms:play-services-location:10.2.0'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:2.8.9'
+
+    // Dagger 2 dependencies:
+    compile 'com.google.dagger:dagger:2.10'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.10'
+
+    // To inject Activities components like activities or fragments:
+    compile 'com.google.dagger:dagger-android:2.10'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.10'
+
+    // To use the support libraries with Dagger 2:
+    compile 'com.google.dagger:dagger-android-support:2.10'
+
 }
 
 
