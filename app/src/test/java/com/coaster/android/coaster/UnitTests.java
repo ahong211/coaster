@@ -2,6 +2,8 @@ package com.coaster.android.coaster;
 
 import android.content.Context;
 
+import com.coaster.android.coaster.CategoryFragment.CategoryFragment;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;

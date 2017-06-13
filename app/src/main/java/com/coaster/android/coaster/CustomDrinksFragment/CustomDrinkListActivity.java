@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.CustomDrinksFragment;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import com.coaster.android.coaster.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,12 +27,12 @@ import butterknife.OnClick;
 public class CustomDrinkListActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String MAC_TAG = "MAC_TAG";
-    CustomDrinkFragment mCustomDrinkFragment;
+    com.coaster.android.coaster.CustomDrinkFragment.CustomDrinkFragment mCustomDrinkFragment;
     FragmentManager manager = getSupportFragmentManager();
-    CustomDrinksAdapter customDrinksAdapter;
+    com.coaster.android.coaster.CustomDrinkFragment.CustomDrinksAdapter customDrinksAdapter;
     DatabaseReference customDrinkListReference;
     LinearLayoutManager mLayoutManager;
-    List<CustomDrinkRecipe> customDrinksDataList;
+    List<com.coaster.android.coaster.CustomDrinkFragment.CustomDrinkRecipe> customDrinksDataList;
 
     @BindView(R.id.add_new_drink)
     FloatingActionButton addCustomDrinkActionButton;
@@ -46,7 +47,7 @@ public class CustomDrinkListActivity extends AppCompatActivity implements View.O
         customDrinkListReference = FirebaseDatabase.getInstance().getReference("custom_drinks");
         callQuery(customDrinkListReference);
         customDrinksDataList = new ArrayList<>();
-        customDrinksAdapter = new CustomDrinksAdapter(customDrinksDataList);
+        customDrinksAdapter = new com.coaster.android.coaster.CustomDrinkFragment.CustomDrinksAdapter(customDrinksDataList);
         Log.d(MAC_TAG, "onCreate: " + customDrinksDataList);
 
     }
@@ -54,7 +55,7 @@ public class CustomDrinkListActivity extends AppCompatActivity implements View.O
     @OnClick(R.id.add_new_drink)
     @Override
     public void onClick(View v) {
-        mCustomDrinkFragment = new CustomDrinkFragment();
+        mCustomDrinkFragment = new com.coaster.android.coaster.CustomDrinkFragment.CustomDrinkFragment();
         FragmentTransaction customDrinkTransaction = manager.beginTransaction();
         customDrinkTransaction.replace(R.id.custom_drink_frag_container, mCustomDrinkFragment);
         customDrinkTransaction.addToBackStack(null);
@@ -75,7 +76,7 @@ public class CustomDrinkListActivity extends AppCompatActivity implements View.O
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnap : dataSnapshot.getChildren()) {
-                    CustomDrinkRecipe value = dataSnap.getValue(CustomDrinkRecipe.class);
+                    com.coaster.android.coaster.CustomDrinkFragment.CustomDrinkRecipe value = dataSnap.getValue(com.coaster.android.coaster.CustomDrinkFragment.CustomDrinkRecipe.class);
                     Log.d(MAC_TAG, "onDataChange: " + value.getDrinkId());
                     Log.d(MAC_TAG, "onDataChange: " + value.getDrinkName());
                     Log.d(MAC_TAG, "onDataChange: " + value.getIngredient());

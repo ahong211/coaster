@@ -16,17 +16,21 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+
+import com.coaster.android.coaster.CustomDrinkFragment.CustomDrinkFragment;
+
+import com.coaster.android.coaster.CustomDrinksFragment.CustomDrinkListActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class MainActivity extends AppCompatActivity implements ButtonPress, DrinkInfo {
+public class MainActivity extends AppCompatActivity implements ButtonPress, DrinkInfo{
     private static final int INVITE_REQUEST_CODE = 101;
     CategoryFragment mCategoryFragment;
     DrinksFragment mDrinksFragment;
     DrinkListInfoFragment mDrinkListInfoFragment;
-    //CustomDrinkFragment mCustomDrinkFragment;
+    CustomDrinkFragment mCustomDrinkFragment;
     FragmentManager manager = getSupportFragmentManager();
 
 //    private DrawerLayout mDrawerLayout;

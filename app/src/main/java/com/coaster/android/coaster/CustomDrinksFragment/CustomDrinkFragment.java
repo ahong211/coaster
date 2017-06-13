@@ -1,18 +1,14 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.CustomDrinkFragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import com.coaster.android.coaster.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,7 +29,7 @@ public class CustomDrinkFragment extends Fragment implements View.OnClickListene
     FirebaseDatabase customDatabase;
     String topNode = "custom_drinks";
     DatabaseReference customDrinkReference;
-    CustomDrinkRecipe customDrinkRecipe = new CustomDrinkRecipe();
+    com.coaster.android.coaster.CustomDrinkFragment.CustomDrinkRecipe customDrinkRecipe = new com.coaster.android.coaster.CustomDrinkFragment.CustomDrinkRecipe();
     private static final String LOG_TAG = "MAC_TAG";
 
     @BindView(R.id.name_edit_text)

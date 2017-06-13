@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.CustomDrinkFragment;
 
 import java.io.File;
 
