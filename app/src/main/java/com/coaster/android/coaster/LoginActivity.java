@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,11 +37,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-//        if (auth.getCurrentUser() != null) {
-//            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
-//        } else {
-//            loginOptions();
-//        }
+        if (auth.getCurrentUser() != null) {
+            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
+        } else {
+            loginOptions();
+        }
     }
 
     private void loginOptions() {
@@ -52,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                                         AuthUI.EMAIL_PROVIDER).build(),
                                 new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build()))
                         .setLogo(R.drawable.logo_black)
-//                        .setTheme(R.style.AppTheme)
+                        .setTheme(R.style.LoginTheme)
                         .build(), 123);
     }
 

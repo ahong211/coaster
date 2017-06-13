@@ -350,13 +350,14 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        signOutUser();
+    //    signOutUser();
     }
 
     private void signOutUser() {
         AuthUI.getInstance().signOut(this);
         finish();
     }
+
 
     // *********************************************************************************************
 
