@@ -8,5 +8,6 @@
     <color name="colorBlue">#5aa9e9</color>
     <color name="colorPink">#f78ff9</color>
     <color name="colorGreen">#5ae98a</color>
+    <color name="colorMainBackground">#f1f1f1</color>
 
 </resources>

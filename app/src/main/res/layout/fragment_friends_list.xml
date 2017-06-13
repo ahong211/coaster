@@ -1,17 +1,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              tools:context="com.coaster.android.coaster.FriendsListFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMainBackground"
+    android:orientation="vertical"
+    tools:context="com.coaster.android.coaster.FriendsListFragment">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add friend by email: "
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimaryDark"/>
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,15 +22,15 @@
         <EditText
             android:id="@+id/friendslist_email"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="57dp"
             android:layout_weight="1"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark" />
 
         <Button
             android:id="@+id/addFriendsButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Friend"/>
+            android:layout_height="40dp"
+            android:text="Add Friend" />
 
     </LinearLayout>
 
@@ -41,7 +42,9 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/friends_list_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
         </android.support.v7.widget.RecyclerView>
     </FrameLayout>
 </LinearLayout>

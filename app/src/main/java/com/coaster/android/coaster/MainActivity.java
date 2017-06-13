@@ -230,6 +230,10 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         Fragment fragment = null;
 
         switch (position) {
+            case 0:
+                //Do nothing. Navigation drawer Coaster Icon clicked
+                break;
+
             case 1:
                 //noinspection ConstantConditions
 
@@ -237,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
                 //String name = auth.getCurrentUser().getDisplayName();
                 //Toast.makeText(this, "Hi " + name, Toast.LENGTH_SHORT).show();
                 
-                Toast.makeText(this, "Hi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Account Clicked", Toast.LENGTH_SHORT).show();
                 break;
 
             case 2:
@@ -259,8 +263,8 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
                 break;
 
             case 6:
-                //barCodeScannerFragment();
-                Toast.makeText(this, "Bar Code Scanner Clicked", Toast.LENGTH_SHORT).show();
+                Intent scannerIntent = new Intent(this, ScannerActivity.class);
+                startActivity(scannerIntent);
                 break;
 
             case 7:

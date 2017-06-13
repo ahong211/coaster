@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/custom_drink_frag_container"
-    tools:context="com.coaster.android.coaster.CustomDrinkListActivity">
+    tools:context="com.coaster.android.coaster.CustomDrinkListActivity"
+    android:background="@color/colorMainBackground">
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/add_new_drink"

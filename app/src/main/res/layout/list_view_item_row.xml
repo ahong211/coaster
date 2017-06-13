@@ -22,7 +22,7 @@
         android:paddingRight="10dp"
         android:text="Item Name"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorWhite"
         android:textSize="22sp" />
 
 

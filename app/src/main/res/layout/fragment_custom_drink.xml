@@ -3,23 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context="com.coaster.android.coaster.CustomDrinkFragment">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/save_custom_drink"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        tools:layout_constraintLeft_creator="1"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp">
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -31,9 +32,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:ems="10"
-                android:hint="Drink Name"
+                android:hint="Enter Drink Name:"
                 android:inputType="textPersonName"
-                android:textColor="#ffffff"
+                android:textColor="@color/colorGrey"
                 android:textColorHighlight="@color/colorPrimary"
                 android:textColorHint="@color/colorGrey"
                 android:textSize="25sp" />
@@ -46,15 +47,15 @@
 
             <EditText
                 android:id="@+id/ingredient_edit_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Quantity + Ingredient"
-                android:textColorHint="@color/colorGrey"
+                android:hint="Enter Quantity + Ingredient:"
                 android:inputType="textMultiLine"
                 android:maxLines="6"
-                android:textColor="#ffffff"
-                android:text="" />
+                android:textColor="@color/colorGrey"
+                android:textColorHint="@color/colorGrey"
+                android:textColorLink="@color/authui_colorPrimary" />
 
         </FrameLayout>
 
@@ -65,15 +66,14 @@
 
             <EditText
                 android:id="@+id/instruction_edit_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Instructions"
-                android:textColorHint="@color/colorGrey"
+                android:hint="Enter Instructions:"
                 android:inputType="textMultiLine"
                 android:maxLines="6"
-                android:textColor="#ffffff"
-                android:text="" />
+                android:textColor="@color/colorGrey"
+                android:textColorHint="@color/colorGrey" />
 
         </FrameLayout>
 
@@ -81,16 +81,15 @@
 
     <Button
         android:id="@+id/save_custom_drink"
-        android:layout_width="368dp"
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorPrimary"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="8dp" />
+        tools:layout_constraintBottom_creator="1" />
 
 </android.support.constraint.ConstraintLayout>
