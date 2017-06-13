@@ -11,14 +11,26 @@
         android:id="@+id/add_new_drink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        app:backgroundTint="@android:color/background_dark"
-        app:fabSize="mini"
-        app:srcCompat="@android:drawable/ic_input_add"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginBottom="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp" />
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/share_drink_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/add_new_drink"
+        android:layout_alignStart="@+id/add_new_drink"
+        android:layout_marginBottom="17dp"
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabSize="mini"
+        app:srcCompat="?attr/actionModeShareDrawable" />
 
     <android.support.v7.widget.RecyclerView
 

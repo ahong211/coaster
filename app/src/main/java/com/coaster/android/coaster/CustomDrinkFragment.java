@@ -22,12 +22,9 @@ import butterknife.OnClick;
 
 public class CustomDrinkFragment extends Fragment implements View.OnClickListener {
 
-    // TODO: 6/8/2017 Convert CustomDrinksListFragment to regular activity
-    // todo create interface to communicate from fragment to fragment - create it inside fragment with data to pass
-
-    // TODO: 6/8/2017 Load firebase data to card view
+    // TODO: 6/11/2017 Add delete button 
+    // TODO: 6/11/2017 add image capture 
     // TODO: 6/8/2017 Database calls on service
-    // TODO: 6/8/2017 populate recyclerview in CustomDrinkListFragment with cardviews
     // TODO: 6/8/2017 Add share functionality
 
     FirebaseDatabase customDatabase;
@@ -68,6 +65,7 @@ public class CustomDrinkFragment extends Fragment implements View.OnClickListene
         customDrinkRecipe.setIngredient(ingredientEditText.getText().toString());
         customDrinkRecipe.setInstruction(instructionEditText.getText().toString());
         customDrinkReference.child(mKey).setValue(customDrinkRecipe);
+        Toast.makeText(getContext(), "Drink Saved!", Toast.LENGTH_SHORT).show();
         Log.d(LOG_TAG, "onClick: " + customDrinkRecipe.getDrinkId());
         Log.d(LOG_TAG, "onClick: " + customDrinkRecipe.getDrinkName());
         Log.d(LOG_TAG, "onClick: " + customDrinkRecipe.getInstruction());

@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
     private FirebaseAuth auth;
 
-    // TODO: 5/29/2017 Link custom drink fragment to custom drink list fragment
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
