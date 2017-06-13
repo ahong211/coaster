@@ -74,7 +74,6 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
         switch (v.getId()) {
             case R.id.addFriendsButton:
 
-                friendsList.clear();
                 searchDatabaseReference = database.getReference(usersNode);
                 Query searchFriends = searchDatabaseReference.orderByChild("email").equalTo(friendsListEmail.getText().toString());
 
@@ -118,7 +117,6 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
     }
 
     private void callQuery(Query friendEmail) {
-
         friendEmail.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -129,6 +127,7 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
                     databaseEmail = (String) dataSnap.child("email").getValue();
 
                     if (value != null) {
+                        friendsList.clear();
                         databaseReference = database.getReference(usersNode + "/"
                                 + auth.getCurrentUser().getUid() + "/" + friendsNode + "/" + value.getId());
                         databaseReference.setValue(value);
