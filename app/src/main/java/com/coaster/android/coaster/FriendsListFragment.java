@@ -30,19 +30,19 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
     private static final String TAG = FriendsListFragment.class.getSimpleName() + "_TAG";
     EditText friendsListEmail;
     Button addFriendsButton;
-    private FirebaseAuth auth;
     DatabaseReference databaseReference;
     DatabaseReference searchDatabaseReference;
     User value;
+    User anotherValue;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     String databaseEmail = "";
     ArrayList<User> friendsList = new ArrayList<>();
     RecyclerView friendsRecyclerView;
     LinearLayoutManager layoutManager;
-    private ProgressDialog progressDialog;
-
     String friendsNode = "friends";
     String usersNode = "users";
+    private FirebaseAuth auth;
+    private ProgressDialog progressDialog;
 
     public FriendsListFragment() {
         // Required empty public constructor
@@ -52,7 +52,7 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_friends_list, container, false);
 
         friendsRecyclerView = (RecyclerView) view.findViewById(R.id.friends_list_recyclerView);
@@ -62,8 +62,9 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
         progressDialog = new ProgressDialog(getContext());
 
         auth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference(usersNode + "/" + auth.getCurrentUser().getUid()
-                + "/" + friendsNode);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference(usersNode + "/"
+                + auth.getCurrentUser().getUid() + "/" + friendsNode);
         displayFriendsList(databaseReference);
 
         return view;
@@ -75,14 +76,18 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
             case R.id.addFriendsButton:
 
                 searchDatabaseReference = database.getReference(usersNode);
-                Query searchFriends = searchDatabaseReference.orderByChild("email").equalTo(friendsListEmail.getText().toString());
+                Query searchFriends = searchDatabaseReference.orderByChild("email")
+                        .equalTo(friendsListEmail.getText().toString());
+
+                Query addToFriendsEmail = searchDatabaseReference.orderByChild("email")
+                        .equalTo(auth.getCurrentUser().getEmail());
 
                 callQuery(searchFriends);
+                addMeToFriend(addToFriendsEmail);
 
                 break;
         }
     }
-
 
     private void displayFriendsList(DatabaseReference friends) {
         progressDialog.setCanceledOnTouchOutside(false);
@@ -116,6 +121,7 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
         });
     }
 
+
     private void callQuery(Query friendEmail) {
         friendEmail.addValueEventListener(new ValueEventListener() {
             @Override
@@ -129,15 +135,44 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
                     if (value != null) {
                         friendsList.clear();
                         databaseReference = database.getReference(usersNode + "/"
-                                + auth.getCurrentUser().getUid() + "/" + friendsNode + "/" + value.getId());
+                                + auth.getCurrentUser().getUid() + "/" + friendsNode + "/"
+                                + value.getId());
                         databaseReference.setValue(value);
+
                         Toast.makeText(getContext(), R.string.friend_added, Toast.LENGTH_SHORT).show();
                     }
                 }
+
                 if (!databaseEmail.equals(friendsListEmail.getText().toString())) {
                     Toast.makeText(getContext(), R.string.invalid_email, Toast.LENGTH_SHORT).show();
                 }
 
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void addMeToFriend(Query addToFriendsEmail) {
+        addToFriendsEmail.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    anotherValue = snapshot.getValue(User.class);
+                    Log.d(TAG, "onDataChangeMeToFriend: " + anotherValue.getId());
+                    databaseEmail = (String) snapshot.child("email").getValue();
+
+                    if (anotherValue != null) {
+                        friendsList.clear();
+                        databaseReference = database.getReference(usersNode + "/"
+                                + anotherValue.getId() + "/" + friendsNode + "/"
+                                + auth.getCurrentUser().getUid());
+                        databaseReference.setValue(anotherValue);
+                    }
+                }
             }
 
             @Override
