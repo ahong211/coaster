@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
     private CharSequence mTitle;
     android.support.v7.app.ActionBarDrawerToggle mDrawerToggle;
 
-    // TODO: 5/29/2017 Link custom drink fragment to custom drink list fragment
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

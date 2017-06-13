@@ -35,5 +35,8 @@
     <string name="signout">Sign Out</string>
     <string name="account">Account</string>
     <string name="settings">Settings</string>
+    <string name="customDrink_invitation_title">Custom Drinks List</string>
+    <string name="customDrink_invitation_deep_link">https://c34mu.app.goo.gl/pGuk</string>
+    <string name="customDrink_message">Check out my very own drink recipes!: </string>
 
 </resources>
