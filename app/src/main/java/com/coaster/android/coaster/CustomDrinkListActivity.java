@@ -2,21 +2,16 @@ package com.coaster.android.coaster;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-import com.google.android.gms.appinvite.AppInvite;
-import com.google.android.gms.appinvite.AppInviteInvitation;
-import com.google.android.gms.appinvite.AppInviteReferral;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,9 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static android.R.id.message;
-
-public class CustomDrinkListActivity extends AppCompatActivity implements View.OnClickListener {
+public class CustomDrinkListActivity extends AppCompatActivity {
 
     // TODO: 6/11/2017 create dynamic link of drinks list
     // TODO: 6/11/2017 add share methods to button
@@ -47,9 +40,12 @@ public class CustomDrinkListActivity extends AppCompatActivity implements View.O
     LinearLayoutManager mLayoutManager;
     List<CustomDrinkRecipe> customDrinksDataList;
 
-    @BindView(R.id.share_drink_list) FloatingActionButton shareCustomDrinkListButton;
+    @BindView(R.id.share_drink_list)
+    FloatingActionButton shareCustomDrinkListButton;
+
     @BindView(R.id.add_new_drink)
     FloatingActionButton addCustomDrinkActionButton;
+
     @BindView(R.id.a_recycler_view)
     RecyclerView customDrinkListRecyclerView;
 
@@ -67,26 +63,26 @@ public class CustomDrinkListActivity extends AppCompatActivity implements View.O
     }
 
     @OnClick(R.id.add_new_drink)
-    @Override
-    public void onClick(View v) {
+    public void onNewDrinkButtonClicked(View v) {
         mCustomDrinkFragment = new CustomDrinkFragment();
         FragmentTransaction customDrinkTransaction = manager.beginTransaction();
         customDrinkTransaction.replace(R.id.custom_drink_frag_container, mCustomDrinkFragment);
         customDrinkTransaction.addToBackStack(null);
         customDrinkTransaction.commit();
+
         addCustomDrinkActionButton.setVisibility(View.INVISIBLE);
         shareCustomDrinkListButton.setVisibility(View.INVISIBLE);
         customDrinkListRecyclerView.setVisibility(View.INVISIBLE);
     }
 
     @OnClick(R.id.share_drink_list)
-    public void onShareButtonClicked(View v){
+    public void onShareButtonClicked(View v) {
         Intent sendIntent = new Intent();
 //        Intent sendIntent = new AppInviteInvitation.IntentBuilder(getString(R.string.customDrink_invitation_title))
 //                .setMessage(getString(R.string.customDrink_message))
 //                .setDeepLink(Uri.parse(getString(R.string.customDrink_invitation_deep_link)))
 //                .build();
-        Uri myDynamicLink= Uri.parse(getString(R.string.customDrink_invitation_deep_link));
+        Uri myDynamicLink = Uri.parse(getString(R.string.customDrink_invitation_deep_link));
         String message = getString(R.string.customDrink_message) + myDynamicLink.toString();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, message);
@@ -133,7 +129,7 @@ public class CustomDrinkListActivity extends AppCompatActivity implements View.O
                     customDrinksDataList.add(value);
                 }
 
-                mLayoutManager = new LinearLayoutManager(getBaseContext());
+                mLayoutManager = new LinearLayoutManager(getApplicationContext());
                 customDrinkListRecyclerView.setLayoutManager(mLayoutManager);
                 customDrinkListRecyclerView.setAdapter(customDrinksAdapter);
 

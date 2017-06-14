@@ -12,22 +12,42 @@ import android.widget.ImageView;
 
 import com.google.firebase.storage.StorageReference;
 
-public class CategoryFragment extends Fragment implements View.OnClickListener {
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class CategoryFragment extends Fragment {
 
     private static final String TAG = CategoryFragment.class.getSimpleName() + "_TAG";
 
+    @BindView(R.id.gin_button)
     ImageView ginButton;
+
+    @BindView(R.id.rum_button)
     ImageView rumButton;
+
+    @BindView(R.id.tequila_button)
     ImageView tequilaButton;
+
+    @BindView(R.id.vodka_button)
     ImageView vodkaButton;
+
+    @BindView(R.id.whiskey_button)
     ImageView whiskeyButton;
+
+    @BindView(R.id.mixed_button)
     ImageView mixedButton;
 
+    @BindView(R.id.custom_drinks_button)
     Button customDrinksButton;
+
     FragmentManager manager = getFragmentManager();
     DrinksFragment drinksFrag = new DrinksFragment();
     private StorageReference storageReference;
 
+    @Inject
     public CategoryFragment() {
         // Required empty public constructor
     }
@@ -38,13 +58,15 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
 
         View view = inflater.inflate(R.layout.fragment_category, container, false);
 
-        ginButton = (ImageView) view.findViewById(R.id.gin_button);
-        rumButton = (ImageView) view.findViewById(R.id.rum_button);
-        tequilaButton = (ImageView) view.findViewById(R.id.tequila_button);
-        vodkaButton = (ImageView) view.findViewById(R.id.vodka_button);
-        whiskeyButton = (ImageView) view.findViewById(R.id.whiskey_button);
-        mixedButton = (ImageView) view.findViewById(R.id.mixed_button);
-        customDrinksButton = (Button) view.findViewById(R.id.custom_drinks_button);
+//        ginButton = (ImageView) view.findViewById(R.id.gin_button);
+//        rumButton = (ImageView) view.findViewById(R.id.rum_button);
+//        tequilaButton = (ImageView) view.findViewById(R.id.tequila_button);
+//        vodkaButton = (ImageView) view.findViewById(R.id.vodka_button);
+//        whiskeyButton = (ImageView) view.findViewById(R.id.whiskey_button);
+//        mixedButton = (ImageView) view.findViewById(R.id.mixed_button);
+//        customDrinksButton = (Button) view.findViewById(R.id.custom_drinks_button);
+
+        ButterKnife.bind(this, view);
 
         //storageReference = FirebaseStorage.getInstance().getReference();
         //StorageReference imageReference = storageReference.child("Images");
@@ -53,13 +75,13 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             saveImageToStorage(imageReference, image_button);
         */
 
-        customDrinksButton.setOnClickListener(this);
-        ginButton.setOnClickListener(this);
-        rumButton.setOnClickListener(this);
-        tequilaButton.setOnClickListener(this);
-        vodkaButton.setOnClickListener(this);
-        whiskeyButton.setOnClickListener(this);
-        mixedButton.setOnClickListener(this);
+//        customDrinksButton.setOnClickListener(this);
+//        ginButton.setOnClickListener(this);
+//        rumButton.setOnClickListener(this);
+//        tequilaButton.setOnClickListener(this);
+//        vodkaButton.setOnClickListener(this);
+//        whiskeyButton.setOnClickListener(this);
+//        mixedButton.setOnClickListener(this);
 
         return view;
     }
@@ -99,9 +121,12 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
 //        });
 //    }
 
-    @Override
-    public void onClick(View v) {
+    @OnClick({R.id.vodka_button, R.id.whiskey_button, R.id.tequila_button, R.id.rum_button,
+            R.id.gin_button, R.id.mixed_button, R.id.custom_drinks_button})
+    public void onDrinksCategoryButtonClicked(View v) {
+
         switch (v.getId()) {
+
             case R.id.vodka_button:
 
                 ButtonPress vodkaPress = (ButtonPress) getActivity();
@@ -158,5 +183,4 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 break;
         }
     }
-
 }

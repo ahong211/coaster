@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.inject.Inject;
+
 public class DrinksFragment extends Fragment {
 
     private static final String TAG = MainActivity.class.getSimpleName() + "_TAG";
@@ -35,6 +37,7 @@ public class DrinksFragment extends Fragment {
     private int mShortAnimationDuration;
     private ProgressDialog progressDialog;
 
+    @Inject
     public DrinksFragment() {
         // Required empty constructor
     }

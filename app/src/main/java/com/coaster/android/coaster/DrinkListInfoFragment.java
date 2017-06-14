@@ -18,6 +18,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class DrinkListInfoFragment extends Fragment {
 
     private static final String TAG = DrinkListInfoFragment.class.getSimpleName() + "_TAG";
@@ -32,6 +34,7 @@ public class DrinkListInfoFragment extends Fragment {
     int mLongAnimationDuration;
     private View drinkInfoLayout;
 
+    @Inject
     public DrinkListInfoFragment() {
         // Required empty constructor
     }

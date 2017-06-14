@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.coaster.android.coaster.model.User;
+
 import java.util.ArrayList;
 import java.util.List;
 

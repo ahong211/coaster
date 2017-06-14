@@ -16,24 +16,29 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.coaster.android.coaster.component.CategoryFragmentComponent;
+import com.coaster.android.coaster.component.DaggerCategoryFragmentComponent;
+import com.coaster.android.coaster.component.DaggerDrinkListInfoFragmentComponent;
+import com.coaster.android.coaster.component.DaggerDrinksFragmentComponent;
+import com.coaster.android.coaster.component.DrinkListInfoFragmentComponent;
+import com.coaster.android.coaster.component.DrinksFragmentComponent;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.firebase.auth.FirebaseAuth;
 
-
 public class MainActivity extends AppCompatActivity implements ButtonPress, DrinkInfo {
     private static final int INVITE_REQUEST_CODE = 101;
-    CategoryFragment mCategoryFragment;
-    DrinksFragment mDrinksFragment;
-    DrinkListInfoFragment mDrinkListInfoFragment;
-    //CustomDrinkFragment mCustomDrinkFragment;
+    //    CustomDrinkFragment mCustomDrinkFragment;
     FragmentManager manager = getSupportFragmentManager();
+    Toolbar toolbar;
+    android.support.v7.app.ActionBarDrawerToggle mDrawerToggle;
+    private CategoryFragment mCategoryFragment;
 
 //    private DrawerLayout mDrawerLayout;
 //    private ActionBarDrawerToggle mToggle;
 
-    Toolbar toolbar;
-    android.support.v7.app.ActionBarDrawerToggle mDrawerToggle;
+    private DrinksFragment mDrinksFragment;
+    private DrinkListInfoFragment mDrinkListInfoFragment;
     private String[] mNavigationDrawerItemTitles;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -49,9 +54,18 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
         auth = FirebaseAuth.getInstance();
 
-        mCategoryFragment = new CategoryFragment();
-        mDrinksFragment = new DrinksFragment();
-        mDrinkListInfoFragment = new DrinkListInfoFragment();
+        CategoryFragmentComponent categoryComponent = DaggerCategoryFragmentComponent.create();
+        DrinksFragmentComponent drinksComponent = DaggerDrinksFragmentComponent.create();
+        DrinkListInfoFragmentComponent drinkListInfoComponent = DaggerDrinkListInfoFragmentComponent.create();
+
+        // Changed to Dagger: mCategoryFragment = new CategoryFragment();
+        mCategoryFragment = categoryComponent.getCategoryFragment();
+
+        // Changed to Dagger: mDrinksFragment = new DrinksFragment();
+        mDrinksFragment = drinksComponent.getDrinksFragment();
+
+        // Changed to Dagger: mDrinkListInfoFragment = new DrinkListInfoFragment();
+        mDrinkListInfoFragment = drinkListInfoComponent.getDrinkListInfoFragment();
 
         FragmentTransaction transaction = manager.beginTransaction();
 
@@ -79,7 +93,8 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        DrawerItemCustomAdaptor adapter = new DrawerItemCustomAdaptor(this, R.layout.list_view_item_row, drawerItem);
+        DrawerItemCustomAdaptor adapter = new DrawerItemCustomAdaptor(this,
+                R.layout.list_view_item_row, drawerItem);
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -240,7 +255,7 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
                 //FIXME: change manifest file to launch LoginActivity - before getting currentUser.
                 //String name = auth.getCurrentUser().getDisplayName();
                 //Toast.makeText(this, "Hi " + name, Toast.LENGTH_SHORT).show();
-                
+
                 Toast.makeText(this, "Account Clicked", Toast.LENGTH_SHORT).show();
                 break;
 
@@ -277,7 +292,8 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
 
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment_container,
+                    fragment).addToBackStack(null).commit();
 
             mDrawerList.setItemChecked(position, true);
             mDrawerList.setSelection(position);
@@ -350,7 +366,7 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
     @Override
     protected void onDestroy() {
         super.onDestroy();
-    //    signOutUser();
+        //    signOutUser();
     }
 
     private void signOutUser() {

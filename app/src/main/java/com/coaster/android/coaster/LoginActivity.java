@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
+import com.coaster.android.coaster.component.DaggerUserComponent;
+import com.coaster.android.coaster.component.UserComponent;
+import com.coaster.android.coaster.model.User;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -19,16 +21,23 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
+
     private static final String TAG = LoginActivity.class.getSimpleName() + "_TAG";
-    private FirebaseAuth auth;
+
     DatabaseReference searchDatabaseReference;
-    User user = new User();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private FirebaseAuth auth;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // To consume (receive) the instance of injected User object:
+        //AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        UserComponent userComponent = DaggerUserComponent.create();
+        user = userComponent.getUser();
 
         auth = FirebaseAuth.getInstance();
     }
@@ -37,9 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if (auth.getCurrentUser() != null) {
-            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
-        } else {
+        if (auth.getCurrentUser() == null) {
             loginOptions();
         }
     }
@@ -100,8 +107,8 @@ public class LoginActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnap : dataSnapshot.getChildren()) {
                     User value = dataSnap.getValue(User.class);
                     Log.d(TAG, "onDataChange: " + value.getName());
-
                 }
+
                 if (!dataSnapshot.hasChild(user.getId())) {
                     String userNode = "users";
 
@@ -116,5 +123,19 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        //finish();
+//        finishFromChild(getParent());
+//    }
+
+    @Override
+    public void onBackPressed() {
+        //finish();
+        super.onBackPressed();
+        finishFromChild(getParent());
     }
 }
