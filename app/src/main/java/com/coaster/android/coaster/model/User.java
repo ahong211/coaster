@@ -3,12 +3,15 @@ package com.coaster.android.coaster;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class User {
     private String name;
     private String email;
     private String id;
     private List<String> friends = new ArrayList<>();
 
+    @Inject
     public User() {
         // Required empty constructor
     }
@@ -39,5 +42,15 @@ public class User {
 
     public void addFriend(String email) {
         this.friends.add(email);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", id='" + id + '\'' +
+                ", friends=" + friends +
+                '}';
     }
 }
