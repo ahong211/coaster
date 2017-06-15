@@ -20,28 +20,37 @@ import com.coaster.android.coaster.component.CategoryFragmentComponent;
 import com.coaster.android.coaster.component.DaggerCategoryFragmentComponent;
 import com.coaster.android.coaster.component.DaggerDrinkListInfoFragmentComponent;
 import com.coaster.android.coaster.component.DaggerDrinksFragmentComponent;
+import com.coaster.android.coaster.component.DaggerFriendsListFragmentComponent;
 import com.coaster.android.coaster.component.DrinkListInfoFragmentComponent;
 import com.coaster.android.coaster.component.DrinksFragmentComponent;
+import com.coaster.android.coaster.component.FriendsListFragmentComponent;
+import com.coaster.android.coaster.model.DataModel;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.firebase.auth.FirebaseAuth;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements ButtonPress, DrinkInfo {
     private static final int INVITE_REQUEST_CODE = 101;
-    //    CustomDrinkFragment mCustomDrinkFragment;
+    //          CustomDrinkFragment mCustomDrinkFragment;
+//        private DrawerLayout mDrawerLayout;
+//    private ActionBarDrawerToggle mToggle;
     FragmentManager manager = getSupportFragmentManager();
     Toolbar toolbar;
     android.support.v7.app.ActionBarDrawerToggle mDrawerToggle;
+
+    @BindView(R.id.drawer_layout)
+    DrawerLayout mDrawerLayout;
+
+    @BindView(R.id.left_drawer)
+    ListView mDrawerList;
+
     private CategoryFragment mCategoryFragment;
-
-//    private DrawerLayout mDrawerLayout;
-//    private ActionBarDrawerToggle mToggle;
-
     private DrinksFragment mDrinksFragment;
     private DrinkListInfoFragment mDrinkListInfoFragment;
     private String[] mNavigationDrawerItemTitles;
-    private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
 
@@ -52,33 +61,33 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ButterKnife.bind(this);
+
         auth = FirebaseAuth.getInstance();
 
         CategoryFragmentComponent categoryComponent = DaggerCategoryFragmentComponent.create();
         DrinksFragmentComponent drinksComponent = DaggerDrinksFragmentComponent.create();
-        DrinkListInfoFragmentComponent drinkListInfoComponent = DaggerDrinkListInfoFragmentComponent.create();
+        DrinkListInfoFragmentComponent drinkListInfoComponent =
+                DaggerDrinkListInfoFragmentComponent.create();
 
-        // Changed to Dagger: mCategoryFragment = new CategoryFragment();
         mCategoryFragment = categoryComponent.getCategoryFragment();
-
-        // Changed to Dagger: mDrinksFragment = new DrinksFragment();
         mDrinksFragment = drinksComponent.getDrinksFragment();
-
-        // Changed to Dagger: mDrinkListInfoFragment = new DrinkListInfoFragment();
         mDrinkListInfoFragment = drinkListInfoComponent.getDrinkListInfoFragment();
 
         FragmentTransaction transaction = manager.beginTransaction();
-
         transaction.add(R.id.fragment_container, mCategoryFragment);
         transaction.commit();
 
         mTitle = mDrawerTitle = getTitle();
-        mNavigationDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items_array);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        mNavigationDrawerItemTitles = getResources().getStringArray(R.array
+                .navigation_drawer_items_array);
+
+//        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
         setupToolbar();
 
+        // FIXME: Use Dagger instead of instantiating new objects of DataModel.
         DataModel[] drawerItem = new DataModel[8];
         drawerItem[0] = new DataModel(R.drawable.coaster_nav_image);
         drawerItem[1] = new DataModel("Account");
@@ -97,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
                 R.layout.list_view_item_row, drawerItem);
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         setupDrawerToggle();
 
@@ -191,7 +200,6 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
         mDrinkListInfoFragment.topNode = mDrinksFragment.topNode;
     }
 
-
     // Action bar added and side drawer
 
 //    @Override
@@ -250,13 +258,11 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
                 break;
 
             case 1:
+                //accountFragment();
                 //noinspection ConstantConditions
+                String name = auth.getCurrentUser().getDisplayName();
+                Toast.makeText(this, "Hi, " + name, Toast.LENGTH_SHORT).show();
 
-                //FIXME: change manifest file to launch LoginActivity - before getting currentUser.
-                //String name = auth.getCurrentUser().getDisplayName();
-                //Toast.makeText(this, "Hi " + name, Toast.LENGTH_SHORT).show();
-
-                Toast.makeText(this, "Account Clicked", Toast.LENGTH_SHORT).show();
                 break;
 
             case 2:
@@ -270,7 +276,9 @@ public class MainActivity extends AppCompatActivity implements ButtonPress, Drin
                 break;
 
             case 4:
-                fragment = new FriendsListFragment();
+                FriendsListFragmentComponent friendsListFragmentComponent =
+                        DaggerFriendsListFragmentComponent.create();
+                fragment = friendsListFragmentComponent.getFriendsListFragment();
                 break;
 
             case 5:

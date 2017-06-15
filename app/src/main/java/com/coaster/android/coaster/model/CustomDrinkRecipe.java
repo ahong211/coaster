@@ -1,8 +1,18 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.model;
 
-import java.io.File;
+import javax.inject.Inject;
 
 public class CustomDrinkRecipe {
+
+    private String drinkId;
+    private String drinkName;
+    private String ingredient;
+    private String instruction;
+
+    @Inject
+    public CustomDrinkRecipe() {
+        // Required empty constructor
+    }
 
     public String getDrinkId() {
         return drinkId;
@@ -10,27 +20,6 @@ public class CustomDrinkRecipe {
 
     public void setDrinkId(String drinkId) {
         this.drinkId = drinkId;
-    }
-
-    public CustomDrinkRecipe(String drinkId) {
-
-        this.drinkId = drinkId;
-    }
-
-    private String drinkId;
-    private String drinkName;
-    private String ingredient;
-    private String instruction;
-
-    public CustomDrinkRecipe() {
-        // Required empty constructor
-    }
-
-    public CustomDrinkRecipe(String drinkName, String ingredient, String instruction) {
-
-        this.drinkName = drinkName;
-        this.ingredient = ingredient;
-        this.instruction = instruction;
     }
 
     public String getDrinkName() {

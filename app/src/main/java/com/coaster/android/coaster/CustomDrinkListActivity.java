@@ -12,6 +12,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import com.coaster.android.coaster.component.CustomDrinkFragmentComponent;
+import com.coaster.android.coaster.component.DaggerCustomDrinkFragmentComponent;
+import com.coaster.android.coaster.model.CustomDrinkRecipe;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,6 +38,7 @@ public class CustomDrinkListActivity extends AppCompatActivity {
     private static final int REQUEST_INVITE = 747;
     CustomDrinkFragment mCustomDrinkFragment;
     FragmentManager manager = getSupportFragmentManager();
+
     CustomDrinksAdapter customDrinksAdapter;
     DatabaseReference customDrinkListReference;
     LinearLayoutManager mLayoutManager;
@@ -59,12 +63,14 @@ public class CustomDrinkListActivity extends AppCompatActivity {
         customDrinksDataList = new ArrayList<>();
         customDrinksAdapter = new CustomDrinksAdapter(customDrinksDataList);
         Log.d(MAC_TAG, "onCreate: " + customDrinksDataList);
-
     }
 
     @OnClick(R.id.add_new_drink)
     public void onNewDrinkButtonClicked(View v) {
-        mCustomDrinkFragment = new CustomDrinkFragment();
+        CustomDrinkFragmentComponent drinkFragmentComponent =
+                DaggerCustomDrinkFragmentComponent.create();
+        mCustomDrinkFragment = drinkFragmentComponent.getCustomDrinkFragment();
+
         FragmentTransaction customDrinkTransaction = manager.beginTransaction();
         customDrinkTransaction.replace(R.id.custom_drink_frag_container, mCustomDrinkFragment);
         customDrinkTransaction.addToBackStack(null);
@@ -132,7 +138,6 @@ public class CustomDrinkListActivity extends AppCompatActivity {
                 mLayoutManager = new LinearLayoutManager(getApplicationContext());
                 customDrinkListRecyclerView.setLayoutManager(mLayoutManager);
                 customDrinkListRecyclerView.setAdapter(customDrinksAdapter);
-
             }
 
             @Override

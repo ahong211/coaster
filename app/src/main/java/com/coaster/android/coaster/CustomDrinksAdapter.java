@@ -6,7 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.coaster.android.coaster.model.CustomDrinkRecipe;
+
 import java.util.List;
 
 import butterknife.BindView;

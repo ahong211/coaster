@@ -24,24 +24,39 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class FriendsListFragment extends Fragment implements View.OnClickListener {
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class FriendsListFragment extends Fragment {
 
     private static final String TAG = FriendsListFragment.class.getSimpleName() + "_TAG";
-    EditText friendsListEmail;
+
+    @BindView(R.id.friends_list_recyclerView)
+    RecyclerView friendsRecyclerView;
+
+    @BindView(R.id.addFriendsButton)
     Button addFriendsButton;
+
+    @BindView(R.id.friendslist_email)
+    EditText friendsListEmail;
+
     DatabaseReference databaseReference;
     DatabaseReference searchDatabaseReference;
     User value;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     String databaseEmail = "";
     ArrayList<User> friendsList = new ArrayList<>();
-    RecyclerView friendsRecyclerView;
+
     LinearLayoutManager layoutManager;
     String friendsNode = "friends";
     String usersNode = "users";
     private FirebaseAuth auth;
     private ProgressDialog progressDialog;
 
+    @Inject
     public FriendsListFragment() {
         // Required empty public constructor
     }
@@ -52,11 +67,9 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
 
         View view = inflater.inflate(R.layout.fragment_friends_list, container, false);
 
-        friendsRecyclerView = (RecyclerView) view.findViewById(R.id.friends_list_recyclerView);
-        friendsListEmail = (EditText) view.findViewById(R.id.friendslist_email);
-        addFriendsButton = (Button) view.findViewById(R.id.addFriendsButton);
-        addFriendsButton.setOnClickListener(this);
-        progressDialog = new ProgressDialog(getContext());
+        ButterKnife.bind(this, view);
+
+        progressDialog = new ProgressDialog(view.getContext());
 
         auth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference(usersNode + "/"
@@ -66,8 +79,8 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
         return view;
     }
 
-    @Override
-    public void onClick(View v) {
+    @OnClick(R.id.addFriendsButton)
+    public void onAddFriendsButtonClick(View v) {
         switch (v.getId()) {
             case R.id.addFriendsButton:
 
@@ -80,7 +93,6 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
                 break;
         }
     }
-
 
     private void displayFriendsList(DatabaseReference friends) {
         progressDialog.setCanceledOnTouchOutside(false);
@@ -133,6 +145,7 @@ public class FriendsListFragment extends Fragment implements View.OnClickListene
                         Toast.makeText(getContext(), R.string.friend_added, Toast.LENGTH_SHORT).show();
                     }
                 }
+
                 if (!databaseEmail.equals(friendsListEmail.getText().toString())) {
                     Toast.makeText(getContext(), R.string.invalid_email, Toast.LENGTH_SHORT).show();
                 }

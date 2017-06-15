@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.coaster.android.coaster.model.Cocktail;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,19 +19,22 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class DrinksFragment extends Fragment {
 
     private static final String TAG = MainActivity.class.getSimpleName() + "_TAG";
 
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
+
     List<Cocktail> mCocktailList = new ArrayList<>();
     DatabaseReference myRef;
-    RecyclerView mRecyclerView;
     String topNode;
-    Cocktail cocktail = new Cocktail();
     int positionIndex = -1;
     LinearLayoutManager mLayoutManager;
     int topScreenView;
@@ -48,8 +52,8 @@ public class DrinksFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_drinks, container, false);
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        progressDialog = new ProgressDialog(getContext());
+        ButterKnife.bind(this, view);
+        progressDialog = new ProgressDialog(view.getContext());
 
         myRef = FirebaseDatabase.getInstance().getReference(topNode);
 
@@ -57,34 +61,22 @@ public class DrinksFragment extends Fragment {
 //        Query searchVodka = myRef.orderByChild("category").equalTo("Vodka");
 //        Query searchWhiskey = myRef.orderByChild("category").equalTo("Whiskey");
 
-        if (Objects.equals(topNode, "vodka")) {
-            mCocktailList.clear();
-            callQuery(myRef);
-        }
+        switch (topNode) {
 
-        if (Objects.equals(topNode, "whiskey")) {
-            mCocktailList.clear();
-            callQuery(myRef);
-        }
+            case "vodka":
+            case "whiskey":
+            case "tequila":
+            case "rum":
+            case "gin":
+            case "mixed_drink":
 
-        if (Objects.equals(topNode, "tequila")) {
-            mCocktailList.clear();
-            callQuery(myRef);
-        }
+                mCocktailList.clear();
+                callQuery(myRef);
 
-        if (Objects.equals(topNode, "rum")) {
-            mCocktailList.clear();
-            callQuery(myRef);
-        }
+                break;
 
-        if (Objects.equals(topNode, "gin")) {
-            mCocktailList.clear();
-            callQuery(myRef);
-        }
-
-        if (Objects.equals(topNode, "mixed_drink")) {
-            mCocktailList.clear();
-            callQuery(myRef);
+            default:
+                throw new RuntimeException("Invalid topNode: " + topNode);
         }
 
         mRecyclerView.setVisibility(View.GONE);

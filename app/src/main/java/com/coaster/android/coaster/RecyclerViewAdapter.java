@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.coaster.android.coaster.model.Cocktail;
 
 import java.util.List;
 
@@ -40,7 +41,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String cocktailName = mCocktails.get(position).getName();
                 DrinkInfo drinkInfo = (DrinkInfo) v.getContext();
                 drinkInfo.goToDrinkListFragment();

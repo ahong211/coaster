@@ -16,41 +16,47 @@ public class ScannerActivity extends AppCompatActivity {
     }
 
     public void HandleClick(View arg) {
-        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-        switch(arg.getId()){
+        Intent scannerIntent = new Intent("com.google.zxing.client.android.SCAN");
+
+        switch (arg.getId()) {
+
             case R.id.butQR:
-                intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+                scannerIntent.putExtra("SCAN_MODE", "QR_CODE_MODE");
                 break;
+
             case R.id.butProd:
-                intent.putExtra("SCAN_MODE", "PRODUCT_MODE");
+                scannerIntent.putExtra("SCAN_MODE", "PRODUCT_MODE");
                 break;
+
             case R.id.butOther:
-                intent.putExtra("SCAN_FORMATS", "CODE_39,CODE_93,CODE_128,DATA_MATRIX,ITF,CODABAR");
+                scannerIntent.putExtra("SCAN_FORMATS", "CODE_39,CODE_93,CODE_128,DATA_MATRIX,ITF,CODABAR");
                 break;
+
+            default:
+                throw new RuntimeException("Invalid case id: " + arg.getId());
         }
+
         try {
-            startActivityForResult(intent, 0); //Barcode Scanner to scan for us
-        } catch (ActivityNotFoundException e)  {
+            startActivityForResult(scannerIntent, 0); //Barcode Scanner to scan for us
+        } catch (ActivityNotFoundException e) {
 //            Toast.makeText(this, "Please install the ZXing Barcode Scanner app", Toast.LENGTH_LONG).show();
             Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.google.zxing.client.android&hl=en");
             Intent intent2 = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent2);
         }
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == 0) {
 
             if (resultCode == RESULT_OK) {
                 String product = intent.getStringExtra("SCAN_RESULT");
 
-
                 Uri uri = Uri.parse("http://www.google.com/#q=" + product);
-                Intent intent2 = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent2);
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(webIntent);
 
-            } //else if (resultCode == RESULT_CANCELED) {
-
-            //}
+            }
         }
     }
 }

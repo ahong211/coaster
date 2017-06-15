@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.coaster.android.coaster.model.DataModel;
+
 /**
  * Created by Kevin on 6/10/17.
  */
@@ -38,7 +40,6 @@ public class DrawerItemCustomAdaptor extends ArrayAdapter<DataModel> {
         TextView textViewName = (TextView) listItem.findViewById(R.id.textViewName);
 
         DataModel folder = data[position];
-
 
         imageViewIcon.setImageResource(folder.icon);
         textViewName.setText(folder.name);

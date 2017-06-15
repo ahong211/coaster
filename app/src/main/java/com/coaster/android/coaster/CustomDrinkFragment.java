@@ -1,9 +1,6 @@
 package com.coaster.android.coaster;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,33 +10,44 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.coaster.android.coaster.component.CustomDrinkRecipeComponent;
+import com.coaster.android.coaster.component.DaggerCustomDrinkRecipeComponent;
+import com.coaster.android.coaster.model.CustomDrinkRecipe;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CustomDrinkFragment extends Fragment implements View.OnClickListener {
+public class CustomDrinkFragment extends Fragment {
 
     // TODO: 6/11/2017 Add delete button 
     // TODO: 6/11/2017 add image capture 
     // TODO: 6/8/2017 Database calls on service
     // TODO: 6/8/2017 Add share functionality
 
+    private static final String LOG_TAG = "MAC_TAG";
     FirebaseDatabase customDatabase;
     String topNode = "custom_drinks";
     DatabaseReference customDrinkReference;
-    CustomDrinkRecipe customDrinkRecipe = new CustomDrinkRecipe();
-    private static final String LOG_TAG = "MAC_TAG";
+    CustomDrinkRecipe customDrinkRecipe;
 
     @BindView(R.id.name_edit_text)
     EditText nameEditText;
+
     @BindView(R.id.ingredient_edit_text)
     EditText ingredientEditText;
+
     @BindView(R.id.instruction_edit_text)
     EditText instructionEditText;
 
+    @BindView(R.id.save_custom_drink)
+    Button saveCustomDrink;
+
+    @Inject
     public CustomDrinkFragment() {
         // Required empty constructor
     }
@@ -51,25 +59,29 @@ public class CustomDrinkFragment extends Fragment implements View.OnClickListene
         View view = inflater.inflate(R.layout.fragment_custom_drink, container, false);
         ButterKnife.bind(this, view);
 
+        CustomDrinkRecipeComponent recipeComponent = DaggerCustomDrinkRecipeComponent.create();
+        customDrinkRecipe = recipeComponent.getCustomDrinkRecipe();
+
         return view;
     }
 
     @OnClick(R.id.save_custom_drink)
-    @Override
-    public void onClick(View v) {
+    public void onSaveCustomDrinkClick(View v) {
         customDatabase = FirebaseDatabase.getInstance();
         customDrinkReference = customDatabase.getReference(topNode);
         String mKey = customDrinkReference.push().getKey();
+
         customDrinkRecipe.setDrinkId(mKey);
         customDrinkRecipe.setDrinkName(nameEditText.getText().toString());
         customDrinkRecipe.setIngredient(ingredientEditText.getText().toString());
         customDrinkRecipe.setInstruction(instructionEditText.getText().toString());
+
         customDrinkReference.child(mKey).setValue(customDrinkRecipe);
-        Toast.makeText(getContext(), "Drink Saved!", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(v.getContext(), "Drink Saved!", Toast.LENGTH_SHORT).show();
         Log.d(LOG_TAG, "onClick: " + customDrinkRecipe.getDrinkId());
         Log.d(LOG_TAG, "onClick: " + customDrinkRecipe.getDrinkName());
         Log.d(LOG_TAG, "onClick: " + customDrinkRecipe.getInstruction());
         Log.d(LOG_TAG, "onClick: " + customDrinkRecipe.getIngredient());
-
     }
 }

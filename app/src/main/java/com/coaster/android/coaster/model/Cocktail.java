@@ -1,4 +1,6 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.model;
+
+import javax.inject.Inject;
 
 public class Cocktail {
 
@@ -13,6 +15,7 @@ public class Cocktail {
     private String prep;
     private String url;
 
+    @Inject
     public Cocktail() {
         // Required empty constructor
     }
