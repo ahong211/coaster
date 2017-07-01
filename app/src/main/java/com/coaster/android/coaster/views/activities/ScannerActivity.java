@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.activities;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.coaster.android.coaster.R;
 
 public class ScannerActivity extends AppCompatActivity {
 

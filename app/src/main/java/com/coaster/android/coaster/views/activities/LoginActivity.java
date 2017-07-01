@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.coaster.android.coaster.R;
 import com.coaster.android.coaster.components.DaggerUserComponent;
 import com.coaster.android.coaster.components.UserComponent;
 import com.coaster.android.coaster.models.User;

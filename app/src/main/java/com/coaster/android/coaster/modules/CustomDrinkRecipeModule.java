@@ -1,6 +1,6 @@
-package com.coaster.android.coaster.module;
+package com.coaster.android.coaster.modules;
 
-import com.coaster.android.coaster.model.CustomDrinkRecipe;
+import com.coaster.android.coaster.models.CustomDrinkRecipe;
 
 import dagger.Module;
 import dagger.Provides;

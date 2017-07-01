@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.coaster.android.coaster.ButtonPress;
+import com.coaster.android.coaster.views.activities.CustomDrinkListActivity;
+import com.coaster.android.coaster.R;
 
 import javax.inject.Inject;
 

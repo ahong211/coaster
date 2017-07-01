@@ -1,6 +1,6 @@
-package com.coaster.android.coaster.module;
+package com.coaster.android.coaster.modules;
 
-import com.coaster.android.coaster.FriendsListFragment;
+import com.coaster.android.coaster.views.fragments.FriendsListFragment;
 
 import dagger.Module;
 import dagger.Provides;

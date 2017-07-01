@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,33 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.coaster.android.coaster.R;
 import com.coaster.android.coaster.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/*
  * Created by Albert on 6/12/17.
  */
 
 public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.FriendsHolder> {
-    List<User> friendsList;
+    public List<User> friendsList;
 
 
     public FriendsListAdapter(ArrayList<User> list) {
-        friendsList = list;
-
-    }
-
-    public class FriendsHolder extends RecyclerView.ViewHolder {
-
-        TextView friendsTextView;
-
-        public FriendsHolder(View itemView) {
-            super(itemView);
-
-            friendsTextView = (TextView) itemView.findViewById(R.id.friends_name_textView);
-        }
+        this.friendsList = list;
     }
 
     @Override
@@ -52,5 +41,16 @@ public class FriendsListAdapter extends RecyclerView.Adapter<FriendsListAdapter.
     @Override
     public int getItemCount() {
         return friendsList.size();
+    }
+
+    public class FriendsHolder extends RecyclerView.ViewHolder {
+
+        TextView friendsTextView;
+
+        public FriendsHolder(View itemView) {
+            super(itemView);
+
+            friendsTextView = (TextView) itemView.findViewById(R.id.friends_name_textView);
+        }
     }
 }

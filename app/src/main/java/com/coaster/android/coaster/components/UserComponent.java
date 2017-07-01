@@ -1,7 +1,7 @@
-package com.coaster.android.coaster.component;
+package com.coaster.android.coaster.components;
 
-import com.coaster.android.coaster.model.User;
-import com.coaster.android.coaster.module.UserModule;
+import com.coaster.android.coaster.models.User;
+import com.coaster.android.coaster.modules.UserModule;
 
 import dagger.Component;
 

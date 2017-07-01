@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.coaster.android.coaster.ButtonPress;
+import com.coaster.android.coaster.DrinkInfo;
+import com.coaster.android.coaster.R;
 import com.coaster.android.coaster.components.CategoryFragmentComponent;
 import com.coaster.android.coaster.components.DaggerCategoryFragmentComponent;
 import com.coaster.android.coaster.components.DaggerDrinkListInfoFragmentComponent;
@@ -25,6 +28,7 @@ import com.coaster.android.coaster.components.DrinkListInfoFragmentComponent;
 import com.coaster.android.coaster.components.DrinksFragmentComponent;
 import com.coaster.android.coaster.components.FriendsListFragmentComponent;
 import com.coaster.android.coaster.models.DataModel;
+import com.coaster.android.coaster.views.adapters.DrawerItemCustomAdaptor;
 import com.coaster.android.coaster.views.fragments.CategoryFragment;
 import com.coaster.android.coaster.views.fragments.DrinkListInfoFragment;
 import com.coaster.android.coaster.views.fragments.DrinksFragment;

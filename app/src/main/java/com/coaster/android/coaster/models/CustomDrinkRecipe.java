@@ -1,4 +1,4 @@
-package com.coaster.android.coaster.model;
+package com.coaster.android.coaster.models;
 
 import javax.inject.Inject;
 

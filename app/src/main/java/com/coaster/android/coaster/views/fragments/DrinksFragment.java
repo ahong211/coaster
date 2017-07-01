@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -10,7 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.coaster.android.coaster.model.Cocktail;
+import com.coaster.android.coaster.views.activities.MainActivity;
+import com.coaster.android.coaster.R;
+import com.coaster.android.coaster.views.adapters.RecyclerViewAdapter;
+import com.coaster.android.coaster.models.Cocktail;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,12 +35,12 @@ public class DrinksFragment extends Fragment {
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
-    List<Cocktail> mCocktailList = new ArrayList<>();
-    DatabaseReference myRef;
-    String topNode;
-    int positionIndex = -1;
-    LinearLayoutManager mLayoutManager;
-    int topScreenView;
+    public List<Cocktail> mCocktailList = new ArrayList<>();
+    public DatabaseReference myRef;
+    public String topNode;
+    public int positionIndex = -1;
+    public LinearLayoutManager mLayoutManager;
+    public int topScreenView;
     private int mShortAnimationDuration;
     private ProgressDialog progressDialog;
 

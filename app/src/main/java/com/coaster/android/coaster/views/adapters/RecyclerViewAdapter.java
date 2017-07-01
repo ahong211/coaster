@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,13 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.coaster.android.coaster.DrinkInfo;
+import com.coaster.android.coaster.R;
 import com.coaster.android.coaster.models.Cocktail;
+import com.coaster.android.coaster.views.holders.MyHolder;
 
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<MyHolder> {
 
-    List<Cocktail> mCocktails;
+    private List<Cocktail> mCocktails;
     private ViewGroup viewGroup;
 
     public RecyclerViewAdapter(List<Cocktail> cocktails) {

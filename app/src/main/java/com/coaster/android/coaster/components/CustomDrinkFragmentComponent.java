@@ -1,7 +1,7 @@
-package com.coaster.android.coaster.component;
+package com.coaster.android.coaster.components;
 
-import com.coaster.android.coaster.CustomDrinkFragment;
-import com.coaster.android.coaster.module.CustomDrinkFragmentModule;
+import com.coaster.android.coaster.views.fragments.CustomDrinkFragment;
+import com.coaster.android.coaster.modules.CustomDrinkFragmentModule;
 
 import dagger.Component;
 

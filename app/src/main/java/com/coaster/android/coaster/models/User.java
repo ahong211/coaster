@@ -1,4 +1,4 @@
-package com.coaster.android.coaster.model;
+package com.coaster.android.coaster.models;
 
 import java.util.ArrayList;
 import java.util.List;

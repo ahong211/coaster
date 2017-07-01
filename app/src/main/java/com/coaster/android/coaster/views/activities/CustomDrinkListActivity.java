@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import com.coaster.android.coaster.views.adapters.CustomDrinksAdapter;
+import com.coaster.android.coaster.R;
 import com.coaster.android.coaster.components.CustomDrinkFragmentComponent;
 import com.coaster.android.coaster.components.DaggerCustomDrinkFragmentComponent;
 import com.coaster.android.coaster.models.CustomDrinkRecipe;
@@ -37,13 +39,13 @@ public class CustomDrinkListActivity extends AppCompatActivity {
 
     private static final String MAC_TAG = "MAC_TAG";
     private static final int REQUEST_INVITE = 747;
-    CustomDrinkFragment mCustomDrinkFragment;
-    FragmentManager manager = getSupportFragmentManager();
+    public CustomDrinkFragment mCustomDrinkFragment;
+    public FragmentManager manager = getSupportFragmentManager();
 
-    CustomDrinksAdapter customDrinksAdapter;
-    DatabaseReference customDrinkListReference;
-    LinearLayoutManager mLayoutManager;
-    List<CustomDrinkRecipe> customDrinksDataList;
+    public CustomDrinksAdapter customDrinksAdapter;
+    public DatabaseReference customDrinkListReference;
+    public LinearLayoutManager mLayoutManager;
+    public List<CustomDrinkRecipe> customDrinksDataList;
 
     @BindView(R.id.share_drink_list)
     FloatingActionButton shareCustomDrinkListButton;

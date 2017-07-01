@@ -1,7 +1,7 @@
-package com.coaster.android.coaster.component;
+package com.coaster.android.coaster.components;
 
-import com.coaster.android.coaster.CategoryFragment;
-import com.coaster.android.coaster.module.CategoryFragmentModule;
+import com.coaster.android.coaster.views.fragments.CategoryFragment;
+import com.coaster.android.coaster.modules.CategoryFragmentModule;
 
 import dagger.Component;
 

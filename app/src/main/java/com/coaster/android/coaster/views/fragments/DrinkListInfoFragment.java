@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.coaster.android.coaster.model.Cocktail;
+import com.coaster.android.coaster.R;
+import com.coaster.android.coaster.models.Cocktail;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +28,11 @@ import butterknife.ButterKnife;
 public class DrinkListInfoFragment extends Fragment {
 
     private static final String TAG = DrinkListInfoFragment.class.getSimpleName() + "_TAG";
-    String drinkName;
+    public DatabaseReference drinkRef;
+    public List<Cocktail> drinkCocktail = new ArrayList<>();
+    public String topNode;
+    public int mLongAnimationDuration;
+    public String drinkName;
 
     @BindView(R.id.drinkInfoLayout)
     View drinkInfoLayout;
@@ -43,11 +48,6 @@ public class DrinkListInfoFragment extends Fragment {
 
     @BindView(R.id.preparation_TextView)
     TextView prepTextView;
-
-    DatabaseReference drinkRef;
-    List<Cocktail> drinkCocktail = new ArrayList<>();
-    String topNode;
-    int mLongAnimationDuration;
 
     @Inject
     public DrinkListInfoFragment() {

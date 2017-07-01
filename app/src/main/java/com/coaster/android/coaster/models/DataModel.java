@@ -1,4 +1,4 @@
-package com.coaster.android.coaster.model;
+package com.coaster.android.coaster.models;
 
 /**
  * Created by Kevin on 6/10/17.

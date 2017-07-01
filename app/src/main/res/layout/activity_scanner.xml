@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.coaster.android.coaster.ScannerActivity"
+    tools:context="com.coaster.android.coaster.views.activities.ScannerActivity"
     android:background="#f1f1f1"
     tools:layout_editor_absoluteY="25dp"
     tools:layout_editor_absoluteX="0dp">

@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -13,7 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.coaster.android.coaster.model.User;
+import com.coaster.android.coaster.views.adapters.FriendsListAdapter;
+import com.coaster.android.coaster.R;
+import com.coaster.android.coaster.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,6 +35,15 @@ import butterknife.OnClick;
 public class FriendsListFragment extends Fragment {
 
     private static final String TAG = FriendsListFragment.class.getSimpleName() + "_TAG";
+    public DatabaseReference databaseReference;
+    public DatabaseReference searchDatabaseReference;
+    public User value;
+    public FirebaseDatabase database = FirebaseDatabase.getInstance();
+    public String databaseEmail = "";
+    public ArrayList<User> friendsList = new ArrayList<>();
+    public LinearLayoutManager layoutManager;
+    public String friendsNode = "friends";
+    public String usersNode = "users";
 
     @BindView(R.id.friends_list_recyclerView)
     RecyclerView friendsRecyclerView;
@@ -43,16 +54,6 @@ public class FriendsListFragment extends Fragment {
     @BindView(R.id.friendslist_email)
     EditText friendsListEmail;
 
-    DatabaseReference databaseReference;
-    DatabaseReference searchDatabaseReference;
-    User value;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    String databaseEmail = "";
-    ArrayList<User> friendsList = new ArrayList<>();
-
-    LinearLayoutManager layoutManager;
-    String friendsNode = "friends";
-    String usersNode = "users";
     private FirebaseAuth auth;
     private ProgressDialog progressDialog;
 

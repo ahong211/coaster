@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,9 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.coaster.android.coaster.component.CustomDrinkRecipeComponent;
-import com.coaster.android.coaster.component.DaggerCustomDrinkRecipeComponent;
-import com.coaster.android.coaster.model.CustomDrinkRecipe;
+import com.coaster.android.coaster.R;
+import com.coaster.android.coaster.components.CustomDrinkRecipeComponent;
+import com.coaster.android.coaster.components.DaggerCustomDrinkRecipeComponent;
+import com.coaster.android.coaster.models.CustomDrinkRecipe;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,10 +31,10 @@ public class CustomDrinkFragment extends Fragment {
     // TODO: 6/8/2017 Add share functionality
 
     private static final String LOG_TAG = "MAC_TAG";
-    FirebaseDatabase customDatabase;
-    String topNode = "custom_drinks";
-    DatabaseReference customDrinkReference;
-    CustomDrinkRecipe customDrinkRecipe;
+    public FirebaseDatabase customDatabase;
+    public String topNode = "custom_drinks";
+    public DatabaseReference customDrinkReference;
+    public CustomDrinkRecipe customDrinkRecipe;
 
     @BindView(R.id.name_edit_text)
     EditText nameEditText;

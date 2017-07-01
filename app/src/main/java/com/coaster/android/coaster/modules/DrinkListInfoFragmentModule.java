@@ -1,6 +1,6 @@
-package com.coaster.android.coaster.module;
+package com.coaster.android.coaster.modules;
 
-import com.coaster.android.coaster.DrinkListInfoFragment;
+import com.coaster.android.coaster.views.fragments.DrinkListInfoFragment;
 
 import dagger.Module;
 import dagger.Provides;

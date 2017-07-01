@@ -23,16 +23,16 @@
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
 
-        <activity android:name=".MainActivity" />
+        <activity android:name=".views.activities.MainActivity" />
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".views.activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
             <!-- <intent-filter> -->
-            <!-- <action android:name="com.coaster.android.coaster.CustomDrinkListActivity"></action> -->
+            <!-- <action android:name="com.coaster.android.coaster.views.activities.CustomDrinkListActivity"></action> -->
             <!-- <category android:name="android.intent.category.DEFAULT"></category> -->
             <!-- <category android:name="android.intent.category.BROWSABLE"></category> -->
             <!-- </intent-filter> -->
@@ -40,7 +40,7 @@
         </activity>
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".views.activities.MapsActivity"
             android:label="@string/title_activity_maps" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -54,9 +54,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".CustomDrinkListActivity" />
+        <activity android:name=".views.activities.CustomDrinkListActivity" />
 
-        <activity android:name=".ScannerActivity" />
+        <activity android:name=".views.activities.ScannerActivity" />
 
     </application>
 

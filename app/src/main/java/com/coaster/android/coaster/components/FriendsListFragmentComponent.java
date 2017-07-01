@@ -1,7 +1,7 @@
-package com.coaster.android.coaster.component;
+package com.coaster.android.coaster.components;
 
-import com.coaster.android.coaster.FriendsListFragment;
-import com.coaster.android.coaster.module.FriendsListFragmentModule;
+import com.coaster.android.coaster.views.fragments.FriendsListFragment;
+import com.coaster.android.coaster.modules.FriendsListFragmentModule;
 
 import dagger.Component;
 

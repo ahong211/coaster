@@ -1,4 +1,4 @@
-package com.coaster.android.coaster;
+package com.coaster.android.coaster.views.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.coaster.android.coaster.R;
 import com.coaster.android.coaster.models.CustomDrinkRecipe;
 
 import java.util.List;
@@ -15,14 +16,16 @@ import butterknife.ButterKnife;
 
 public class CustomDrinksAdapter extends RecyclerView.Adapter<CustomDrinksAdapter.ViewHolder> {
 
+    public List<CustomDrinkRecipe> data;
+
     @BindView(R.id.custom_name_text_view)
     TextView nameView;
+
     @BindView(R.id.custom_ingredients_text_view)
     TextView ingredientsView;
+
     @BindView(R.id.custom_instruction_text_view)
     TextView instructionsView;
-
-    List<CustomDrinkRecipe> data;
 
     public CustomDrinksAdapter(List<CustomDrinkRecipe> customDrinksData) {
         this.data = customDrinksData;
