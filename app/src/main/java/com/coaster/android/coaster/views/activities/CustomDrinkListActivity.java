@@ -12,9 +12,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
-import com.coaster.android.coaster.component.CustomDrinkFragmentComponent;
-import com.coaster.android.coaster.component.DaggerCustomDrinkFragmentComponent;
-import com.coaster.android.coaster.model.CustomDrinkRecipe;
+import com.coaster.android.coaster.components.CustomDrinkFragmentComponent;
+import com.coaster.android.coaster.components.DaggerCustomDrinkFragmentComponent;
+import com.coaster.android.coaster.models.CustomDrinkRecipe;
+import com.coaster.android.coaster.views.fragments.CustomDrinkFragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

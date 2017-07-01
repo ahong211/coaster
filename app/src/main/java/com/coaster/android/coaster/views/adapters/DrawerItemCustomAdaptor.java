@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.coaster.android.coaster.model.DataModel;
+import com.coaster.android.coaster.models.DataModel;
 
 /**
  * Created by Kevin on 6/10/17.

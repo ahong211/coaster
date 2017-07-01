@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.coaster.android.coaster.model.CustomDrinkRecipe;
+import com.coaster.android.coaster.models.CustomDrinkRecipe;
 
 import java.util.List;
 

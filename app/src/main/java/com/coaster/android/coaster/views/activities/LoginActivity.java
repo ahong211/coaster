@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.coaster.android.coaster.component.DaggerUserComponent;
-import com.coaster.android.coaster.component.UserComponent;
-import com.coaster.android.coaster.model.User;
+import com.coaster.android.coaster.components.DaggerUserComponent;
+import com.coaster.android.coaster.components.UserComponent;
+import com.coaster.android.coaster.models.User;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
