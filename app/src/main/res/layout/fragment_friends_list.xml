@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorMainBackground"
     android:orientation="vertical"
-    tools:context="com.coaster.android.coaster.FriendsListFragment">
+    tools:context="com.coaster.android.coaster.views.fragments.FriendsListFragment">
 
 
     <TextView

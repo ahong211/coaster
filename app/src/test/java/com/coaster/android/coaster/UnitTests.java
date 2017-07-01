@@ -2,6 +2,10 @@ package com.coaster.android.coaster;
 
 import android.content.Context;
 
+import com.coaster.android.coaster.views.activities.MainActivity;
+import com.coaster.android.coaster.views.fragments.CategoryFragment;
+import com.coaster.android.coaster.views.fragments.DrinksFragment;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
